@@ -1,15 +1,17 @@
 {
-  "serverUrl": "http://127.0.0.1",
-  "isStrict": false,
-  "allInOne": true,
-  "outPath": "src/main/resources/static/doc",
-  "coverOld": true,
-  "packageFilters": "",
-  "md5EncryptedHtmlName": false,
+  "serverUrl": "http://127.0.0.1", // Set the server address, not required
+  "isStrict": false, // whether to enable strict mode
+  "allInOne": true, // whether to merge documents into one file, generally recommended as true
+  "outPath": "src/main/resources/static/doc", // Specify the output path of the document
+  "coverOld": true, // Whether to overwrite old files, mainly used for mardown file overwrite
+  "packageFilters": "",// controller package filtering, multiple package names separated by commas
+  "style":"xt256", //set highlight
+  "createDebugPage": true,//Create a page that can be used to test your APIs like swagger
+  "language":"ENGLISH",//support ENGLISH and CHINESE
   "projectName": "smart-doc-demo",
-  "errorCodeDictionaries": [{
+  "errorCodeDictionaries": [{ // error code list, no need to set
     "title": "title",
-    "enumClassName": "com.power.common.enums.HttpCodeEnum",
+    "enumClassName": "com.smartdoc.example.enums.HttpCodeEnum",
     "codeField": "code",
     "descField": "message"
   }]
