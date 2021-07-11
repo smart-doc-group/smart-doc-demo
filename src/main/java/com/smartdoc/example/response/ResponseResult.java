@@ -1,6 +1,5 @@
 package com.smartdoc.example.response;
 
-import com.power.common.model.CommonResult;
 import com.power.common.util.DateTimeUtil;
 
 import java.io.Serializable;

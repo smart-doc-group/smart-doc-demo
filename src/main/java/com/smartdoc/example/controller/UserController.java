@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * The type User controller.
+ *
  * @author yu 2020/12/27.
  */
 @RestController
@@ -33,6 +34,7 @@ public class UserController {
         userRepository.add(user);
         return ResponseResult.ok();
     }
+
     /**
      * Get all users list.
      *
@@ -52,23 +54,22 @@ public class UserController {
     @GetMapping("/users/{id}")
     public ResponseResult<User> getUsersById(@PathVariable(value = "id") Long userId) {
         User user = userRepository.findById(userId).
-                orElseThrow(()->new UserNotFoundException("User not found on :: " + userId));
+                orElseThrow(() -> new UserNotFoundException("User not found on :: " + userId));
         return ResponseResult.ok().setResultData(user);
     }
-
 
 
     /**
      * Update user response entity.
      *
-     * @param userId the user id|1
+     * @param userId      the user id|1
      * @param userDetails the user details
      * @return the response entity
      */
     @PutMapping("/users/{id}")
     public ResponseResult<User> updateUser(@PathVariable(value = "id") Long userId, @Valid @RequestBody User userDetails) {
         User user = userRepository.findById(userId).
-                orElseThrow(()->new UserNotFoundException("User not found on :: " + userId));
+                orElseThrow(() -> new UserNotFoundException("User not found on :: " + userId));
         user.setEmail(userDetails.getEmail());
         user.setLastName(userDetails.getLastName());
         user.setFirstName(userDetails.getFirstName());
@@ -83,9 +84,9 @@ public class UserController {
      * @return the map
      */
     @DeleteMapping("/user/{id}")
-    public ResponseResult<Boolean> deleteUser(@PathVariable(value = "id") Long userId)  {
+    public ResponseResult<Boolean> deleteUser(@PathVariable(value = "id") Long userId) {
         User user = userRepository.findById(userId).
-                orElseThrow(()->new UserNotFoundException("User not found on :: " + userId));
+                orElseThrow(() -> new UserNotFoundException("User not found on :: " + userId));
         return ResponseResult.ok().setResultData(userRepository.delete(user));
     }
 }
