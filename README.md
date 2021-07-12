@@ -4,7 +4,7 @@
 smart-doc tutorial,Learn how to create REST API document with smart-doc.
 ## Technical selection
 
-- SpringBoot 2.3.7—Used to create a simple REST API
+- SpringBoot 2.3.12—Used to create a simple REST API
 - smart-doc—API document creation tool
 ## Build API document
 ```
