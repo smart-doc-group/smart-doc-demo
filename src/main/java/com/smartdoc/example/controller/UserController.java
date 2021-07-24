@@ -1,6 +1,6 @@
 package com.smartdoc.example.controller;
 
-import com.smartdoc.example.exception.UserNotFoundException;
+import com.smartdoc.example.exception.ResourceNotFoundException;
 import com.smartdoc.example.model.User;
 import com.smartdoc.example.repository.UserRepository;
 import com.smartdoc.example.response.ResponseResult;
@@ -54,7 +54,7 @@ public class UserController {
     @GetMapping("/users/{id}")
     public ResponseResult<User> getUsersById(@PathVariable(value = "id") Long userId) {
         User user = userRepository.findById(userId).
-                orElseThrow(() -> new UserNotFoundException("User not found on :: " + userId));
+                orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + userId));
         return ResponseResult.ok().setResultData(user);
     }
 
@@ -69,7 +69,7 @@ public class UserController {
     @PutMapping("/users/{id}")
     public ResponseResult<User> updateUser(@PathVariable(value = "id") Long userId, @Valid @RequestBody User userDetails) {
         User user = userRepository.findById(userId).
-                orElseThrow(() -> new UserNotFoundException("User not found on :: " + userId));
+                orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + userId));
         user.setEmail(userDetails.getEmail());
         user.setLastName(userDetails.getLastName());
         user.setFirstName(userDetails.getFirstName());
@@ -86,7 +86,7 @@ public class UserController {
     @DeleteMapping("/user/{id}")
     public ResponseResult<Boolean> deleteUser(@PathVariable(value = "id") Long userId) {
         User user = userRepository.findById(userId).
-                orElseThrow(() -> new UserNotFoundException("User not found on :: " + userId));
+                orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + userId));
         return ResponseResult.ok().setResultData(userRepository.delete(user));
     }
 }

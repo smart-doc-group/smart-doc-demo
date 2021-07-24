@@ -1,41 +1,68 @@
 let api = [];
 api.push({
-    alias: 'UserController',
+    alias: 'ProductController',
     order: '1',
-    link: 'the_type_user_controller.',
-    desc: 'The type User controller.',
+    link: 'the_type_product_controller.',
+    desc: 'The type Product controller.',
     list: []
 })
 api[0].list.push({
     order: '1',
-    desc: 'Create user.',
+    desc: 'Create Product.',
 });
 api[0].list.push({
     order: '2',
-    desc: 'Get all users list.',
+    desc: 'Get all Products list.',
 });
 api[0].list.push({
     order: '3',
-    desc: 'Gets users by id.',
+    desc: 'Gets Products by id.',
 });
 api[0].list.push({
     order: '4',
-    desc: 'Update user response entity.',
+    desc: 'Update Product response entity.',
 });
 api[0].list.push({
+    order: '5',
+    desc: 'Delete Product.',
+});
+api.push({
+    alias: 'UserController',
+    order: '2',
+    link: 'the_type_user_controller.',
+    desc: 'The type User controller.',
+    list: []
+})
+api[1].list.push({
+    order: '1',
+    desc: 'Create user.',
+});
+api[1].list.push({
+    order: '2',
+    desc: 'Get all users list.',
+});
+api[1].list.push({
+    order: '3',
+    desc: 'Gets users by id.',
+});
+api[1].list.push({
+    order: '4',
+    desc: 'Update user response entity.',
+});
+api[1].list.push({
     order: '5',
     desc: 'Delete user.',
 });
 api.push({
     alias: 'error',
-    order: '2',
+    order: '3',
     link: 'error_code_list',
     desc: 'Error Code List',
     list: []
 })
 api.push({
     alias: 'dict',
-    order: '3',
+    order: '4',
     link: 'dict_list',
     desc: 'Data Dictionaries',
     list: []

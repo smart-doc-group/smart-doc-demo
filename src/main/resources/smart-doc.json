@@ -1,5 +1,5 @@
 {
-  "serverUrl": "http://127.0.0.1", // Set the server address, not required
+  "serverUrl": "http://localhost:8080", // Set the server address, not required
   "isStrict": false, // whether to enable strict mode
   "allInOne": true, // whether to merge documents into one file, generally recommended as true
   "outPath": "src/main/resources/static/doc", // Specify the output path of the document
