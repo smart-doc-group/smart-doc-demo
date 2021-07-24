@@ -1,0 +1,359 @@
+{
+  "info": {
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "6cee2bf1-f73b-42fa-a0b5-70f851d90f12",
+    "name": "smart-doc-demo"
+  },
+  "item": [
+    {
+      "name": "The type Product controller.",
+      "item": [
+        {
+          "name": "Create Product.",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 187,\n  \"name\": \"isaiah.osinski\",\n  \"price\": 50.10,\n  \"pictureUrl\": \"www.wei-labadie.io\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/products",
+              "protocol": "http",
+              "path": [
+                "api",
+                "v1",
+                "products"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "query": [],
+              "variable": []
+            },
+            "description": "Create Product.",
+            "header": []
+          },
+          "description": "Create Product."
+        },
+        {
+          "name": "Get all Products list.",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/products",
+              "protocol": "http",
+              "path": [
+                "api",
+                "v1",
+                "products"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "query": [],
+              "variable": []
+            },
+            "description": "Get all Products list.",
+            "header": []
+          },
+          "description": "Get all Products list."
+        },
+        {
+          "name": "Gets Products by id.",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/products/1",
+              "protocol": "http",
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "the Product id"
+                }
+              ]
+            },
+            "description": "Gets Products by id.",
+            "header": []
+          },
+          "description": "Gets Products by id."
+        },
+        {
+          "name": "Update Product response entity.",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 776,\n  \"name\": \"isaiah.osinski\",\n  \"price\": 35.18,\n  \"pictureUrl\": \"www.wei-labadie.io\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/products/1",
+              "protocol": "http",
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "     the Product id"
+                }
+              ]
+            },
+            "description": "Update Product response entity.",
+            "header": []
+          },
+          "description": "Update Product response entity."
+        },
+        {
+          "name": "Delete Product.",
+          "request": {
+            "method": "DELETE",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/products/1",
+              "protocol": "http",
+              "path": [
+                "api",
+                "v1",
+                "products",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "the Product id"
+                }
+              ]
+            },
+            "description": "Delete Product.",
+            "header": []
+          },
+          "description": "Delete Product."
+        }
+      ]
+    },
+    {
+      "name": "The type User controller.",
+      "item": [
+        {
+          "name": "Create user.",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"firstName\": \"isaiah.osinski\",\n  \"lastName\": \"isaiah.osinski\",\n  \"email\": \"lasandra.hegmann@gmail.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/users",
+              "protocol": "http",
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "query": [],
+              "variable": []
+            },
+            "description": "Create user.",
+            "header": []
+          },
+          "description": "Create user."
+        },
+        {
+          "name": "Get all users list.",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/users",
+              "protocol": "http",
+              "path": [
+                "api",
+                "v1",
+                "users"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "query": [],
+              "variable": []
+            },
+            "description": "Get all users list.",
+            "header": []
+          },
+          "description": "Get all users list."
+        },
+        {
+          "name": "Gets users by id.",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/users/1",
+              "protocol": "http",
+              "path": [
+                "api",
+                "v1",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "the user id"
+                }
+              ]
+            },
+            "description": "Gets users by id.",
+            "header": []
+          },
+          "description": "Gets users by id."
+        },
+        {
+          "name": "Update user response entity.",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"firstName\": \"isaiah.osinski\",\n  \"lastName\": \"isaiah.osinski\",\n  \"email\": \"lasandra.hegmann@gmail.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/users/1",
+              "protocol": "http",
+              "path": [
+                "api",
+                "v1",
+                "users",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "     the user id"
+                }
+              ]
+            },
+            "description": "Update user response entity.",
+            "header": []
+          },
+          "description": "Update user response entity."
+        },
+        {
+          "name": "Delete user.",
+          "request": {
+            "method": "DELETE",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/v1/user/1",
+              "protocol": "http",
+              "path": [
+                "api",
+                "v1",
+                "user",
+                ":id"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "query": [],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1",
+                  "description": "the user id"
+                }
+              ]
+            },
+            "description": "Delete user.",
+            "header": []
+          },
+          "description": "Delete user."
+        }
+      ]
+    }
+  ]
+}
