@@ -1,6 +1,7 @@
 package com.smartdoc.example.repository;
 
 import com.smartdoc.example.model.Product;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 /**
  * @author yu 2021/7/24.
  */
+@Repository
 public class ProductRepository {
 
     private Map<Long, Product> products = new ConcurrentHashMap<>();
