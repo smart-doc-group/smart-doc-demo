@@ -69,7 +69,7 @@ public class RestExceptionHandler {
     @ResponseStatus(HttpStatus.OK)
     public ResponseResult unknownException(Exception ex) {
         LOGGER.error("Error code 500：{}", ex);
-        return new ResponseResult("500", ex.getMessage());
+        return ResponseResult.fail("500", ex.getMessage());
     }
 
 
