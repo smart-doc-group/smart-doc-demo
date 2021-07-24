@@ -8,7 +8,7 @@ smart-doc tutorial,Learn how to create REST API document with smart-doc.
 - smart-doc—API document creation tool
 ## Build API document
 ```
-mvn package
+mvn smart-doc:html
 ```
 ## Build and Run the Project
 ```
