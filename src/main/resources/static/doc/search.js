@@ -9,81 +9,81 @@ api[0].list.push({
     alias: 'ProductController',
     order: '1',
     link: 'the_type_product_controller.',
-    desc: 'ThetypeProductcontroller.',
+    desc: 'The type Product controller.',
     list: []
 })
 api[0].list[0].list.push({
     order: '1',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/products',
-    desc: 'CreateProduct.',
+    desc: 'Create Product.',
 });
 api[0].list[0].list.push({
     order: '2',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/products',
-    desc: 'GetallProductslist.',
+    desc: 'Get all Products list.',
 });
 api[0].list[0].list.push({
     order: '3',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/products/{id}',
-    desc: 'GetsProductsbyid.',
+    desc: 'Gets Products by id.',
 });
 api[0].list[0].list.push({
     order: '4',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/products/{id}',
-    desc: 'UpdateProductresponseentity.',
+    desc: 'Update Product response entity.',
 });
 api[0].list[0].list.push({
     order: '5',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/products/{id}',
-    desc: 'DeleteProduct.',
+    desc: 'Delete Product.',
 });
 api[0].list.push({
     alias: 'UserController',
     order: '2',
     link: 'the_type_user_controller.',
-    desc: 'ThetypeUsercontroller.',
+    desc: 'The type User controller.',
     list: []
 })
 api[0].list[1].list.push({
     order: '1',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/users',
-    desc: 'Createuser.',
+    desc: 'Create user.',
 });
 api[0].list[1].list.push({
     order: '2',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/users',
-    desc: 'Getalluserslist.',
+    desc: 'Get all users list.',
 });
 api[0].list[1].list.push({
     order: '3',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/users/{id}',
-    desc: 'Getsusersbyid.',
+    desc: 'Gets users by id.',
 });
 api[0].list[1].list.push({
     order: '4',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/users/{id}',
-    desc: 'Updateuserresponseentity.',
+    desc: 'Update user response entity.',
 });
 api[0].list[1].list.push({
     order: '5',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/user/{id}',
-    desc: 'Deleteuser.',
+    desc: 'Delete user.',
 });
 api[0].list.push({
     alias: 'error',
     order: '3',
     link: 'error_code_list',
-    desc: 'ErrorCodeList',
+    desc: 'Error Code List',
     list: []
 })
 document.onkeydown = keyDownSearch;
@@ -92,7 +92,8 @@ function keyDownSearch(e) {
     const code = theEvent.keyCode || theEvent.which || theEvent.charCode;
     if (code == 13) {
         const search = document.getElementById('search');
-        const searchValue = search.value;
+        const searchValue = search.value.toLocaleLowerCase();
+
         let searchGroup = [];
         for (let i = 0; i < api.length; i++) {
 
@@ -102,7 +103,7 @@ function keyDownSearch(e) {
             for (let i = 0; i < apiGroup.list.length; i++) {
                 let apiData = apiGroup.list[i];
                 const desc = apiData.desc;
-                if (desc.indexOf(searchValue) > -1) {
+                if (desc.toLocaleLowerCase().indexOf(searchValue) > -1) {
                     searchArr.push({
                         order: apiData.order,
                         desc: apiData.desc,
@@ -115,7 +116,7 @@ function keyDownSearch(e) {
                     for (let j = 0; j < methodList.length; j++) {
                         const methodData = methodList[j];
                         const methodDesc = methodData.desc;
-                        if (methodDesc.indexOf(searchValue) > -1) {
+                        if (methodDesc.toLocaleLowerCase().indexOf(searchValue) > -1) {
                             methodListTemp.push(methodData);
                             break;
                         }
@@ -131,7 +132,7 @@ function keyDownSearch(e) {
                     }
                 }
             }
-            if (apiGroup.name.indexOf(searchValue) > -1) {
+            if (apiGroup.name.toLocaleLowerCase().indexOf(searchValue) > -1) {
                 searchGroup.push({
                     name: apiGroup.name,
                     order: apiGroup.order,
