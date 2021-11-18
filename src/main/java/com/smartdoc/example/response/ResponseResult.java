@@ -22,8 +22,9 @@ public class ResponseResult<T> implements Serializable {
     private boolean success = false;
 
     /**
-     * @mock 200
+     *
      * response status
+     * @mock 200
      */
     private String status;
 
