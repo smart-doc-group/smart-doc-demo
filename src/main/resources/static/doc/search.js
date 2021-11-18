@@ -52,35 +52,29 @@ api[0].list.push({
 api[0].list[1].list.push({
     order: '1',
     deprecated: 'false',
-    url: 'http://localhost:8080/api/v1/test',
-    desc: 'Test',
+    url: 'http://localhost:8080/api/v1/users',
+    desc: 'Createuser.',
 });
 api[0].list[1].list.push({
     order: '2',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/users',
-    desc: 'Createuser.',
-});
-api[0].list[1].list.push({
-    order: '3',
-    deprecated: 'false',
-    url: 'http://localhost:8080/api/v1/users',
     desc: 'Getalluserslist.',
 });
 api[0].list[1].list.push({
-    order: '4',
+    order: '3',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/users/{id}',
     desc: 'Getsusersbyid.',
 });
 api[0].list[1].list.push({
-    order: '5',
+    order: '4',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/users/{id}',
     desc: 'Updateuserresponseentity.',
 });
 api[0].list[1].list.push({
-    order: '6',
+    order: '5',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/user/{id}',
     desc: 'Deleteuser.',
