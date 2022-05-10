@@ -4,13 +4,16 @@ spring:
     active: dev
 ---
 spring:
-  profiles : dev
   lifecycle:
     timeout-per-shutdown-phase: 30
   mvc:
     throw-exception-if-no-handler-found: true
-  resources:
-    add-mappings: true
+  config:
+    activate:
+      on-profile:
+  web:
+    resources:
+      add-mappings: true
 
 server:
   port: 8080
@@ -22,3 +25,10 @@ server:
     whitelabel:
       enabled: false
   shutdown: graceful
+
+#springdoc:
+#  swagger-ui:
+#    path: /swagger-ui-custom.html
+#    operations-sorter: method
+#    #custom path for api docs
+#    url: /doc/openapi.json

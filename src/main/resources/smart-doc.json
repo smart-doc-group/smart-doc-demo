@@ -6,6 +6,7 @@
   "coverOld": true, // Whether to overwrite old files, mainly used for mardown file overwrite
   "packageFilters": "",// controller package filtering, multiple package names separated by commas
   "style":"xt256", //set highlight
+  "allInOneDocFileName":"index.html",
   "createDebugPage": true,//Create a page that can be used to test your APIs like swagger
   "language":"ENGLISH",//support ENGLISH and CHINESE
   "projectName": "smart-doc-demo",

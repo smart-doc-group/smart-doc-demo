@@ -11,7 +11,8 @@ $(function () {
         $next.slideToggle();
         $this.parent().toggleClass('open');
         if (!e.data.multiple) {
-            $el.find('.submenu').not($next).slideUp("20").parent().removeClass('open');
+            $el.find('.submenu').not($next).slideUp("20").parent().removeClass(
+                'open');
         }
     };
     new Accordion($('#accordion'), false);
@@ -22,7 +23,7 @@ $("[contenteditable=plaintext-only]").on('blur', function (e) {
     e.preventDefault();
     const $this = $(this);
     const data = $this.text();
-    let content = "";
+    let content;
     if (undefined === e.originalEvent.clipboardData) {
         content = data;
     } else {
@@ -53,9 +54,10 @@ $("button").on("click", function () {
 
     // query param
     const $queryElement = $("#" + id + "-query-params")
-    const url = $("#" + id + "-url").data("url");
-    const isDownload = $("#" + id + "-url").data("download");
-    const page = $("#" + id + "-url").data("page");
+    let $urlDataElement = $("#" + id + "-url");
+    const url = $urlDataElement.data("url");
+    const isDownload = $urlDataElement.data("download");
+    const page = $urlDataElement.data("page");
     const method = $("#" + id + "-method").data("method");
     const contentType = $("#" + id + "-content-type").data("content-type");
     console.log("request-headers=>" + JSON.stringify(headersData))
@@ -64,7 +66,7 @@ $("button").on("click", function () {
     console.log("body-params=>" + JSON.stringify(bodyParamData))
     console.log("json-body=>" + body);
     let finalUrl = "";
-    let queryParamData = "";
+    let queryParamData;
     if (!isEmpty(page)) {
         queryParamData = getInputData($queryElement)
         finalUrl = castToGetUri(page, pathParamData, queryParamData)
@@ -73,19 +75,20 @@ $("button").on("click", function () {
     }
     if (isDownload) {
         queryParamData = getInputData($queryElement);
-        download(url, headersData, pathParamData, queryParamData, bodyParamData, method, contentType);
+        download(url, headersData, pathParamData, queryParamData, bodyParamData,
+            method, contentType);
         return;
     }
     const ajaxOptions = {};
 
-    if ("multipart/form-data" == contentType) {
+    if ("multipart/form-data" === contentType) {
         finalUrl = castToGetUri(url, pathParamData);
         queryParamData = getInputData($queryElement, true)
         body = queryParamData;
         ajaxOptions.processData = false;
         ajaxOptions.contentType = false;
-    } else if ("POST" == method && contentType !== "multipart/form-data"
-        && contentType !== "application/json; charset=utf-8") {
+    } else if ("POST" === method && contentType !== "multipart/form-data"
+        && contentType !== "application/json") {
         finalUrl = castToGetUri(url, pathParamData);
         queryParamData = getInputData($queryElement)
         body = queryParamData;
@@ -106,23 +109,30 @@ $("button").on("click", function () {
     $.ajax(ajaxOptions).done(function (result, textStatus, jqXHR) {
         const totalTime = new Date().getTime() - ajaxTime;
         $this.css("background", "#5cb85c");
-        $("#" + id + "-resp-status").html("&nbsp;Status:&nbsp;" + jqXHR.status + "&nbsp;&nbsp;" + jqXHR.statusText + "&nbsp;&nbsp;&nbsp;&nbsp;Time:&nbsp;" + totalTime + "&nbsp;ms");
-        const highlightedCode = hljs.highlight('json', JSON.stringify(result, null, 4)).value;
+        $("#" + id + "-resp-status").html(
+            "&nbsp;Status:&nbsp;" + jqXHR.status + "&nbsp;&nbsp;" + jqXHR.statusText
+            + "&nbsp;&nbsp;&nbsp;&nbsp;Time:&nbsp;" + totalTime + "&nbsp;ms");
+        const highlightedCode = hljs.highlight('json',
+            JSON.stringify(result, null, 4)).value;
         $responseEle.html(highlightedCode);
     }).fail(function (jqXHR) {
         const totalTime = new Date().getTime() - ajaxTime;
         $this.css("background", "#D44B47");
         if (jqXHR.status === 0 && jqXHR.readyState === 0) {
-            $("#" + id + "-resp-status").html("Connection refused, please check the server.");
+            $("#" + id + "-resp-status").html(
+                "Connection refused, please check the server.");
         } else {
-            $("#" + id + "-resp-status").html("&nbsp;Status:&nbsp;" + jqXHR.status + "&nbsp;&nbsp;" + jqXHR.statusText + "&nbsp;&nbsp;&nbsp;&nbsp;Time:&nbsp;" + totalTime + "&nbsp;ms");
+            $("#" + id + "-resp-status").html(
+                "&nbsp;Status:&nbsp;" + jqXHR.status + "&nbsp;&nbsp;"
+                + jqXHR.statusText + "&nbsp;&nbsp;&nbsp;&nbsp;Time:&nbsp;" + totalTime
+                + "&nbsp;ms");
         }
         if (undefined !== jqXHR.responseJSON) {
-            const highlightedCode = hljs.highlight('json', JSON.stringify(jqXHR.responseJSON, null, 4)).value;
+            const highlightedCode = hljs.highlight('json',
+                JSON.stringify(jqXHR.responseJSON, null, 4)).value;
             $responseEle.html(highlightedCode);
         }
     }).always(function () {
-
 
     });
     const curlCmd = toCurl(ajaxOptions);
@@ -173,20 +183,34 @@ function castToGetUri(url, pathParams, params) {
 function getInputData(element, returnFormDate) {
     const formData = new FormData();
     $(element).find("tr").each(function (i) {
-        const checked = $(this).find('td:eq(0)').children(".checkbox").children("input").is(':checked');
+        const checked = $(this).find('td:eq(0)').children(".checkbox").children(
+            "input").is(':checked');
         if (checked) {
             const input = $(this).find('td:eq(2) input');
-            console.log("input type:" + $(input).attr("type"))
+            let attr = $(input).attr("type");
+            let multiple = $(input).attr("multiple");
+            console.log("input type:" + attr)
             const name = $(input).attr("name");
-            if ($(input).attr("type") == "file") {
-                formData.append(name, $(input)[0].files[0]);
+            if (attr === "file") {
+                let files = $(input)[0].files;
+                if (multiple) {
+                    $.each(files, function (i, file) {
+                        formData.append(name, file);
+                    })
+                } else {
+                    formData.append(name, files[0]);
+                }
             } else {
                 const val = $(input).val();
                 if (isValidUrl(val)) {
                     formData.append(name, encodeURI(val));
                 } else {
                     // support chinese
-                    formData.append(name, encodeURIComponent(val));
+                    if (hasChinese(val)) {
+                        formData.append(name, encodeURIComponent(val));
+                    } else {
+                        formData.append(name, val);
+                    }
                 }
             }
         }
@@ -203,14 +227,14 @@ String.prototype.format = function (args) {
     let reg;
     if (arguments.length > 0) {
         let result = this;
-        if (arguments.length == 1 && typeof (args) == "object") {
+        if (arguments.length === 1 && typeof (args) == "object") {
             for (const key in args) {
                 reg = new RegExp("({" + key + "})", "g");
                 result = result.replace(reg, args[key]);
             }
         } else {
             for (let i = 0; i < arguments.length; i++) {
-                if (arguments[i] == undefined) {
+                if (arguments[i] === undefined) {
                     return "";
                 } else {
                     reg = new RegExp("({[" + i + "]})", "g");
@@ -224,7 +248,8 @@ String.prototype.format = function (args) {
     }
 }
 
-function download(url, headersData, pathParamData, queryParamData, bodyParamData, method, contentType) {
+function download(url, headersData, pathParamData, queryParamData,
+                  bodyParamData, method, contentType) {
     url = castToGetUri(url, pathParamData, queryParamData)
     const xmlRequest = new XMLHttpRequest();
     xmlRequest.open(method, url, true);
@@ -279,7 +304,7 @@ function toCurl(request) {
     // default is a GET request
     const cmd = ["curl", "-X", request.type || "GET"];
 
-    if (request.url.indexOf('https') == 0) {
+    if (request.url.indexOf('https') === 0) {
         cmd.push("-k");
     }
 
@@ -287,7 +312,7 @@ function toCurl(request) {
     if (request.contentType) {
         cmd.push("-H");
         cmd.push("'Content-Type:");
-        cmd.push(request.contentType+"'");
+        cmd.push(request.contentType + "'");
     }
     // append request headers
     let headerValue;
@@ -296,7 +321,7 @@ function toCurl(request) {
             if (Object.prototype.hasOwnProperty.call(request.headers, key)) {
                 cmd.push("-H");
                 headerValue = request.headers[key];
-                if (headerValue.value == '') {
+                if (headerValue.value === '') {
                     cmd.push("'" + key + "'");
                 } else {
                     cmd.push("'" + key + ':' + headerValue + "'");
@@ -324,7 +349,7 @@ function toCurl(request) {
         bodyData.push("\"")
         for (let key in request.data) {
             if (Object.prototype.hasOwnProperty.call(request.data, key)) {
-                if (index===0){
+                if (index === 0) {
                     bodyData.push(key);
                     bodyData.push("=");
                     bodyData.push(request.data[key]);
@@ -359,7 +384,12 @@ function toCurl(request) {
 }
 
 function isEmpty(obj) {
-    return obj === undefined || obj === null || new String(obj).trim() === '';
+    return obj === undefined || obj === null || String(obj).trim() === '';
+}
+
+function hasChinese(_string) {
+    const chineseReg = /[\u4e00-\u9fa5]/g
+    return chineseReg.test(_string);
 }
 
 function isValidUrl(_string) {
@@ -369,5 +399,5 @@ function isValidUrl(_string) {
     } catch (_) {
         return false;
     }
-    return urlString.protocol === "http:" || urlString.protocol === "https:" ;
+    return urlString.protocol === "http:" || urlString.protocol === "https:";
 }

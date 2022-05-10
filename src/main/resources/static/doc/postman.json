@@ -1,8 +1,8 @@
 {
   "info": {
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_postman_id": "6cee2bf1-f73b-42fa-a0b5-70f851d90f12",
-    "name": "smart-doc-demo"
+    "_postman_id": "6e1413d2-a3c4-44b8-b072-ce571032455f",
+    "name": "kkk"
   },
   "item": [
     {
@@ -14,7 +14,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id\": 187,\n  \"name\": \"isaiah.osinski\",\n  \"price\": 50.10,\n  \"pictureUrl\": \"www.wei-labadie.io\"\n}",
+              "raw": "{\n  \"id\": 63,\n  \"name\": \"eddie.okuneva\",\n  \"price\": 29.23,\n  \"pictureUrl\": \"www.taunya-oconnell.biz\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -22,17 +22,18 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/products",
-              "protocol": "http",
+              "raw": "https://::communityDomain/community/api/v1/products",
+              "protocol": "https",
               "path": [
+                "",
+                "community",
                 "api",
                 "v1",
                 "products"
               ],
               "host": [
-                "localhost"
+                "{{communityDomain}}"
               ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -49,17 +50,18 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/products",
-              "protocol": "http",
+              "raw": "https://::communityDomain/community/api/v1/products",
+              "protocol": "https",
               "path": [
+                "",
+                "community",
                 "api",
                 "v1",
                 "products"
               ],
               "host": [
-                "localhost"
+                "{{communityDomain}}"
               ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -77,18 +79,19 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/products/1",
-              "protocol": "http",
+              "raw": "https://::communityDomain/community/api/v1/products/1",
+              "protocol": "https",
               "path": [
+                "",
+                "community",
                 "api",
                 "v1",
                 "products",
                 ":id"
               ],
               "host": [
-                "localhost"
+                "{{communityDomain}}"
               ],
-              "port": "8080",
               "query": [],
               "variable": [
                 {
@@ -109,7 +112,7 @@
             "method": "PUT",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id\": 776,\n  \"name\": \"isaiah.osinski\",\n  \"price\": 35.18,\n  \"pictureUrl\": \"www.wei-labadie.io\"\n}",
+              "raw": "{\n  \"id\": 372,\n  \"name\": \"eddie.okuneva\",\n  \"price\": 9.87,\n  \"pictureUrl\": \"www.taunya-oconnell.biz\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -117,18 +120,19 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/products/1",
-              "protocol": "http",
+              "raw": "https://::communityDomain/community/api/v1/products/1",
+              "protocol": "https",
               "path": [
+                "",
+                "community",
                 "api",
                 "v1",
                 "products",
                 ":id"
               ],
               "host": [
-                "localhost"
+                "{{communityDomain}}"
               ],
-              "port": "8080",
               "query": [],
               "variable": [
                 {
@@ -152,18 +156,19 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/products/1",
-              "protocol": "http",
+              "raw": "https://::communityDomain/community/api/v1/products/1",
+              "protocol": "https",
               "path": [
+                "",
+                "community",
                 "api",
                 "v1",
                 "products",
                 ":id"
               ],
               "host": [
-                "localhost"
+                "{{communityDomain}}"
               ],
-              "port": "8080",
               "query": [],
               "variable": [
                 {
@@ -189,7 +194,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id\": 1,\n  \"firstName\": \"isaiah.osinski\",\n  \"lastName\": \"isaiah.osinski\",\n  \"email\": \"lasandra.hegmann@gmail.com\"\n}",
+              "raw": "{\n  \"id\": 1,\n  \"firstName\": \"eddie.okuneva\",\n  \"lastName\": \"eddie.okuneva\",\n  \"email\": \"raleigh.goodwin@yahoo.com\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -197,17 +202,18 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/users",
-              "protocol": "http",
+              "raw": "https://::communityDomain/community/api/v1/users",
+              "protocol": "https",
               "path": [
+                "",
+                "community",
                 "api",
                 "v1",
                 "users"
               ],
               "host": [
-                "localhost"
+                "{{communityDomain}}"
               ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -224,17 +230,18 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/users",
-              "protocol": "http",
+              "raw": "https://::communityDomain/community/api/v1/users",
+              "protocol": "https",
               "path": [
+                "",
+                "community",
                 "api",
                 "v1",
                 "users"
               ],
               "host": [
-                "localhost"
+                "{{communityDomain}}"
               ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -252,18 +259,19 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/users/1",
-              "protocol": "http",
+              "raw": "https://::communityDomain/community/api/v1/users/1",
+              "protocol": "https",
               "path": [
+                "",
+                "community",
                 "api",
                 "v1",
                 "users",
                 ":id"
               ],
               "host": [
-                "localhost"
+                "{{communityDomain}}"
               ],
-              "port": "8080",
               "query": [],
               "variable": [
                 {
@@ -284,7 +292,7 @@
             "method": "PUT",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"id\": 1,\n  \"firstName\": \"isaiah.osinski\",\n  \"lastName\": \"isaiah.osinski\",\n  \"email\": \"lasandra.hegmann@gmail.com\"\n}",
+              "raw": "{\n  \"id\": 1,\n  \"firstName\": \"eddie.okuneva\",\n  \"lastName\": \"eddie.okuneva\",\n  \"email\": \"raleigh.goodwin@yahoo.com\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -292,18 +300,19 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/users/1",
-              "protocol": "http",
+              "raw": "https://::communityDomain/community/api/v1/users/1",
+              "protocol": "https",
               "path": [
+                "",
+                "community",
                 "api",
                 "v1",
                 "users",
                 ":id"
               ],
               "host": [
-                "localhost"
+                "{{communityDomain}}"
               ],
-              "port": "8080",
               "query": [],
               "variable": [
                 {
@@ -327,18 +336,19 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/user/1",
-              "protocol": "http",
+              "raw": "https://::communityDomain/community/api/v1/user/1",
+              "protocol": "https",
               "path": [
+                "",
+                "community",
                 "api",
                 "v1",
                 "user",
                 ":id"
               ],
               "host": [
-                "localhost"
+                "{{communityDomain}}"
               ],
-              "port": "8080",
               "query": [],
               "variable": [
                 {
