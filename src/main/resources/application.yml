@@ -26,9 +26,9 @@ server:
       enabled: false
   shutdown: graceful
 
-#springdoc:
-#  swagger-ui:
-#    path: /swagger-ui-custom.html
-#    operations-sorter: method
-#    #custom path for api docs
-#    url: /doc/openapi.json
+springdoc:
+  swagger-ui:
+    path: /swagger-ui-custom.html
+    operations-sorter: method
+    #custom path for api docs
+    url: /doc/openapi.json

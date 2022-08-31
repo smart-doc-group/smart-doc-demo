@@ -1,0 +1,690 @@
+{
+  "components": {
+    "schemas": {
+      "ResponseResultProduct": {
+        "properties": {
+          "success": {
+            "format": "boolean",
+            "description": "success\n",
+            "type": "boolean"
+          },
+          "status": {
+            "format": "string",
+            "description": "response status\n",
+            "type": "string"
+          },
+          "message": {
+            "format": "string",
+            "description": "error msg\n",
+            "type": "string"
+          },
+          "data": {
+            "description": "response data\n(object)",
+            "type": "object",
+            "$ref": "#/components/schemas/Product"
+          },
+          "timestamp": {
+            "format": "string",
+            "description": "response timestamp\n",
+            "type": "string"
+          }
+        }
+      },
+      "User": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "description": "user id\n",
+            "type": "number"
+          },
+          "firstName": {
+            "format": "string",
+            "description": "first name\n",
+            "type": "string"
+          },
+          "lastName": {
+            "format": "string",
+            "description": "last name\n",
+            "type": "string"
+          },
+          "email": {
+            "format": "string",
+            "description": "email address\n",
+            "type": "string"
+          }
+        }
+      },
+      "ResponseResultUser": {
+        "properties": {
+          "success": {
+            "format": "boolean",
+            "description": "success\n",
+            "type": "boolean"
+          },
+          "status": {
+            "format": "string",
+            "description": "response status\n",
+            "type": "string"
+          },
+          "message": {
+            "format": "string",
+            "description": "error msg\n",
+            "type": "string"
+          },
+          "data": {
+            "description": "response data\n(object)",
+            "type": "object",
+            "$ref": "#/components/schemas/User"
+          },
+          "timestamp": {
+            "format": "string",
+            "description": "response timestamp\n",
+            "type": "string"
+          }
+        }
+      },
+      "ResponseResultListUser": {
+        "properties": {
+          "success": {
+            "format": "boolean",
+            "description": "success\n",
+            "type": "boolean"
+          },
+          "status": {
+            "format": "string",
+            "description": "response status\n",
+            "type": "string"
+          },
+          "message": {
+            "format": "string",
+            "description": "error msg\n",
+            "type": "string"
+          },
+          "data": {
+            "description": "response data\n",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            }
+          },
+          "timestamp": {
+            "format": "string",
+            "description": "response timestamp\n",
+            "type": "string"
+          }
+        }
+      },
+      "Product": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "description": "Product id\n",
+            "type": "number"
+          },
+          "name": {
+            "format": "string",
+            "description": "Product name\n",
+            "type": "string"
+          },
+          "price": {
+            "format": "double",
+            "description": "Product price\n",
+            "type": "number"
+          },
+          "pictureUrl": {
+            "format": "string",
+            "description": "Product picture url\n",
+            "type": "string"
+          }
+        }
+      },
+      "ResponseResultBoolean": {
+        "properties": {
+          "success": {
+            "format": "boolean",
+            "description": "success\n",
+            "type": "boolean"
+          },
+          "status": {
+            "format": "string",
+            "description": "response status\n",
+            "type": "string"
+          },
+          "message": {
+            "format": "string",
+            "description": "error msg\n",
+            "type": "string"
+          },
+          "data": {
+            "format": "boolean",
+            "description": "response data\n",
+            "type": "boolean"
+          },
+          "timestamp": {
+            "format": "string",
+            "description": "response timestamp\n",
+            "type": "string"
+          }
+        }
+      },
+      "ResponseResultListProduct": {
+        "properties": {
+          "success": {
+            "format": "boolean",
+            "description": "success\n",
+            "type": "boolean"
+          },
+          "status": {
+            "format": "string",
+            "description": "response status\n",
+            "type": "string"
+          },
+          "message": {
+            "format": "string",
+            "description": "error msg\n",
+            "type": "string"
+          },
+          "data": {
+            "description": "response data\n",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          "timestamp": {
+            "format": "string",
+            "description": "response timestamp\n",
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080"
+    }
+  ],
+  "openapi": "3.0.3",
+  "paths": {
+    "/api/v1/users/{id}": {
+      "put": {
+        "summary": "Update user response entity.",
+        "deprecated": false,
+        "description": "Update user response entity.",
+        "tags": [
+          "The type User controller."
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "json": {
+                  "summary": "test data",
+                  "value": "{\n  \"id\": 1,\n  \"firstName\": \"dexter.wisozk\",\n  \"lastName\": \"dexter.wisozk\",\n  \"email\": \"austin.grady@hotmail.com\"\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseResultUser"
+                },
+                "examples": {
+                  "json": {
+                    "summary": "test data",
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": 1,\n    \"firstName\": \"dexter.wisozk\",\n    \"lastName\": \"dexter.wisozk\",\n    \"email\": \"austin.grady@hotmail.com\"\n  },\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "apiv1users{id}",
+        "parameters": [
+          {
+            "schema": {
+              "format": "int64",
+              "type": "number"
+            },
+            "in": "path",
+            "description": "     the user id\n",
+            "required": true,
+            "example": "1",
+            "name": "id"
+          }
+        ]
+      },
+      "get": {
+        "summary": "Gets users by id.",
+        "deprecated": false,
+        "description": "Gets users by id.",
+        "tags": [
+          "The type User controller."
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseResultUser"
+                },
+                "examples": {
+                  "json": {
+                    "summary": "test data",
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": 1,\n    \"firstName\": \"dexter.wisozk\",\n    \"lastName\": \"dexter.wisozk\",\n    \"email\": \"austin.grady@hotmail.com\"\n  },\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "apiv1users{id}",
+        "parameters": [
+          {
+            "schema": {
+              "format": "int64",
+              "type": "number"
+            },
+            "in": "path",
+            "description": "the user id\n",
+            "required": true,
+            "example": "1",
+            "name": "id"
+          }
+        ]
+      }
+    },
+    "/api/v1/users": {
+      "post": {
+        "summary": "Create user.",
+        "deprecated": false,
+        "description": "Create user.",
+        "tags": [
+          "The type User controller."
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "json": {
+                  "summary": "test data",
+                  "value": "{\n  \"id\": 1,\n  \"firstName\": \"dexter.wisozk\",\n  \"lastName\": \"dexter.wisozk\",\n  \"email\": \"austin.grady@hotmail.com\"\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseResultUser"
+                },
+                "examples": {
+                  "json": {
+                    "summary": "test data",
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": 1,\n    \"firstName\": \"dexter.wisozk\",\n    \"lastName\": \"dexter.wisozk\",\n    \"email\": \"austin.grady@hotmail.com\"\n  },\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "apiv1users",
+        "parameters": []
+      },
+      "get": {
+        "summary": "Get all users list.",
+        "deprecated": false,
+        "description": "Get all users list.",
+        "tags": [
+          "The type User controller."
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseResultListUser"
+                },
+                "examples": {
+                  "json": {
+                    "summary": "test data",
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"firstName\": \"dexter.wisozk\",\n      \"lastName\": \"dexter.wisozk\",\n      \"email\": \"austin.grady@hotmail.com\"\n    }\n  ],\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "apiv1users",
+        "parameters": []
+      }
+    },
+    "/api/v1/products/{id}": {
+      "delete": {
+        "summary": "Delete Product.",
+        "deprecated": false,
+        "description": "Delete Product.",
+        "tags": [
+          "The type Product controller."
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseResultBoolean"
+                },
+                "examples": {
+                  "json": {
+                    "summary": "test data",
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": true,\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "apiv1products{id}",
+        "parameters": [
+          {
+            "schema": {
+              "format": "int64",
+              "type": "number"
+            },
+            "in": "path",
+            "description": "the Product id\n",
+            "required": true,
+            "example": "1",
+            "name": "id"
+          }
+        ]
+      },
+      "put": {
+        "summary": "Update Product response entity.",
+        "deprecated": false,
+        "description": "Update Product response entity.",
+        "tags": [
+          "The type Product controller."
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              },
+              "examples": {
+                "json": {
+                  "summary": "test data",
+                  "value": "{\n  \"id\": 887,\n  \"name\": \"dexter.wisozk\",\n  \"price\": 47.22,\n  \"pictureUrl\": \"www.krystyna-weissnat.com\"\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseResultProduct"
+                },
+                "examples": {
+                  "json": {
+                    "summary": "test data",
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": 989,\n    \"name\": \"dexter.wisozk\",\n    \"price\": 37.65,\n    \"pictureUrl\": \"www.krystyna-weissnat.com\"\n  },\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "apiv1products{id}",
+        "parameters": [
+          {
+            "schema": {
+              "format": "int64",
+              "type": "number"
+            },
+            "in": "path",
+            "description": "     the Product id\n",
+            "required": true,
+            "example": "1",
+            "name": "id"
+          }
+        ]
+      },
+      "get": {
+        "summary": "Gets Products by id.",
+        "deprecated": false,
+        "description": "Gets Products by id.",
+        "tags": [
+          "The type Product controller."
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseResultProduct"
+                },
+                "examples": {
+                  "json": {
+                    "summary": "test data",
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": 118,\n    \"name\": \"dexter.wisozk\",\n    \"price\": 55.30,\n    \"pictureUrl\": \"www.krystyna-weissnat.com\"\n  },\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "apiv1products{id}",
+        "parameters": [
+          {
+            "schema": {
+              "format": "int64",
+              "type": "number"
+            },
+            "in": "path",
+            "description": "the Product id\n",
+            "required": true,
+            "example": "1",
+            "name": "id"
+          }
+        ]
+      }
+    },
+    "/api/v1/products": {
+      "post": {
+        "summary": "Create Product.",
+        "deprecated": false,
+        "description": "Create Product.",
+        "tags": [
+          "The type Product controller."
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              },
+              "examples": {
+                "json": {
+                  "summary": "test data",
+                  "value": "{\n  \"id\": 9,\n  \"name\": \"dexter.wisozk\",\n  \"price\": 47.88,\n  \"pictureUrl\": \"www.krystyna-weissnat.com\"\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseResultProduct"
+                },
+                "examples": {
+                  "json": {
+                    "summary": "test data",
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": 75,\n    \"name\": \"dexter.wisozk\",\n    \"price\": 75.94,\n    \"pictureUrl\": \"www.krystyna-weissnat.com\"\n  },\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "apiv1products",
+        "parameters": []
+      },
+      "get": {
+        "summary": "Get all Products list.",
+        "deprecated": false,
+        "description": "Get all Products list.",
+        "tags": [
+          "The type Product controller."
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseResultListProduct"
+                },
+                "examples": {
+                  "json": {
+                    "summary": "test data",
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": [\n    {\n      \"id\": 805,\n      \"name\": \"dexter.wisozk\",\n      \"price\": 10.52,\n      \"pictureUrl\": \"www.krystyna-weissnat.com\"\n    }\n  ],\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "apiv1products",
+        "parameters": [
+          {
+            "schema": {
+              "format": "int64",
+              "type": "number"
+            },
+            "in": "query",
+            "description": "Product id\n",
+            "required": false,
+            "example": "783",
+            "name": "id"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "description": "Product name\n",
+            "required": false,
+            "example": "dexter.wisozk",
+            "name": "name"
+          },
+          {
+            "schema": {
+              "format": "double",
+              "type": "number"
+            },
+            "in": "query",
+            "description": "Product price\n",
+            "required": false,
+            "example": "75.11",
+            "name": "price"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "description": "Product picture url\n",
+            "required": false,
+            "example": "www.krystyna-weissnat.com",
+            "name": "pictureUrl"
+          }
+        ]
+      }
+    },
+    "/api/v1/user/{id}": {
+      "delete": {
+        "summary": "Delete user.",
+        "deprecated": false,
+        "description": "Delete user.",
+        "tags": [
+          "The type User controller."
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseResultBoolean"
+                },
+                "examples": {
+                  "json": {
+                    "summary": "test data",
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": true,\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "apiv1user{id}",
+        "parameters": [
+          {
+            "schema": {
+              "format": "int64",
+              "type": "number"
+            },
+            "in": "path",
+            "description": "the user id\n",
+            "required": true,
+            "example": "1",
+            "name": "id"
+          }
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "smart-doc-demo",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "The type Product controller.",
+      "description": "The type Product controller."
+    },
+    {
+      "name": "The type User controller.",
+      "description": "The type User controller."
+    }
+  ]
+}
