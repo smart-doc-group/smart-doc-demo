@@ -15,6 +15,8 @@ mvn smart-doc:html
 mvn package
 ```
 The app will start running at http://localhost:8080.
+
+Access API documents http://localhost:8080/doc/index.html.
 ## Reference
 - [smart-doc manual](https://github.com/smart-doc-group/smart-doc/)
 - [smart-doc-maven plugin manual](https://github.com/smart-doc-group/smart-doc-maven-plugin)
