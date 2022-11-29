@@ -17,7 +17,7 @@ import jakarta.validation.Valid;
  * @author yu 2021/7/24.
  */
 @RestController
-//@RequestMapping("/api/v1")
+@RequestMapping("/api/v1")
 public class ProductController {
     @Resource
     private ProductRepository productRepository;
