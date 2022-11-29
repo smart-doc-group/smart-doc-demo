@@ -18,7 +18,6 @@
                 <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="NEUTRAL"/>
             </Filters>
             <Policies>
-                <!-- 对应 filePattern维度，此处为天数-->
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
                 <SizeBasedTriggeringPolicy size="15MB"/>
             </Policies>

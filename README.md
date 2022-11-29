@@ -1,10 +1,10 @@
 <h1 align="center">smart-doc-demo</h1>
 
 ## Introduce
-smart-doc tutorial,Learn how to create REST API document with smart-doc.
+smart-doc tutorial,Learn how to create REST API documents with smart-doc.
 ## Technical selection
 
-- SpringBoot 2.5.6—Used to create a simple REST API
+- SpringBoot 3.0.0—Used to create a simple REST API
 - smart-doc—API document creation tool
 ## Build API document
 ```
