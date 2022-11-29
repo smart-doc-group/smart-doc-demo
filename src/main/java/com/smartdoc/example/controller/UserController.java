@@ -19,7 +19,7 @@ import jakarta.validation.Valid;
  * @author yu 2020/12/27.
  */
 @RestController
-@RequestMapping("/api/v1")
+//@RequestMapping("/api/v1")
 public class UserController {
 
     @Resource
@@ -31,7 +31,7 @@ public class UserController {
      * @param user the user
      * @return the user
      */
-    @PostMapping("/users")
+    @PostMapping("/api/v1/users")
     public ResponseResult<User> createUser(@Valid @RequestBody User user) {
         userRepository.add(user);
         return ResponseResult.ok();
@@ -42,7 +42,7 @@ public class UserController {
      *
      * @return the list
      */
-    @GetMapping("/users")
+    @GetMapping("/api/v1/users")
     public ResponseResult<List<User>> getAllUsers() {
         return ResponseResult.ok().setResultData(userRepository.getUsers());
     }
@@ -53,7 +53,7 @@ public class UserController {
      * @param userId the user id|1
      * @return the users by id
      */
-    @GetMapping("/users/{id}")
+    @GetMapping("/api/v1/users/{id}")
     public ResponseResult<User> getUsersById(@PathVariable(value = "id") Long userId) {
         User user = userRepository.findById(userId).
                 orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + userId));
@@ -68,7 +68,7 @@ public class UserController {
      * @param userDetails the user details
      * @return the response entity
      */
-    @PutMapping("/users/{id}")
+    @PutMapping("/api/v1/users/{id}")
     public ResponseResult<User> updateUser(@PathVariable(value = "id") Long userId, @Valid @RequestBody User userDetails) {
         User user = userRepository.findById(userId).
                 orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + userId));
@@ -85,7 +85,7 @@ public class UserController {
      * @param userId the user id|1
      * @return the map
      */
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/api/v1/user/{id}")
     public ResponseResult<Boolean> deleteUser(@PathVariable(value = "id") Long userId) {
         User user = userRepository.findById(userId).
                 orElseThrow(() -> new ResourceNotFoundException("User not found on :: " + userId));
