@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import jakarta.annotation.Resource;
-import jakarta.validation.Valid;
+import javax.annotation.Resource;
+import javax.validation.Valid;
 
 /**
  * The type Product controller.

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import jakarta.annotation.Resource;
-import jakarta.validation.Valid;
+import javax.annotation.Resource;
+import javax.validation.Valid;
 
 
 /**
@@ -31,8 +31,8 @@ public class UserController {
      * @param user the user
      * @return the user
      */
-    @PostMapping("/api/v1/users")
-    public ResponseResult<User> createUser(@Valid @RequestBody User user) {
+    @PostMapping("/api/v1/{id}/users")
+    public ResponseResult<User> createUser(@PathVariable String id, @Valid @RequestBody User user) {
         userRepository.add(user);
         return ResponseResult.ok();
     }
