@@ -21,7 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
-        <smart-doc.version>3.0.1</smart-doc.version>
+        <smart-doc.version>3.0.2</smart-doc.version>
     </properties>
     <dependencies>
         <!-- spring boot -->
@@ -60,7 +60,7 @@
         <dependency>
            <groupId>com.github.shalousun</groupId>
            <artifactId>common-util</artifactId>
-           <version>2.1.9</version>
+           <version>2.2.1</version>
          </dependency>
         <!-- https://mvnrepository.com/artifact/com.github.shalousun/smart-doc -->
         <dependency>
@@ -73,6 +73,11 @@
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>1.6.15</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ly.smart-doc</groupId>
+            <artifactId>smart-doc-maven-plugin</artifactId>
+            <version>${smart-doc.version}</version>
         </dependency>
     </dependencies>
 

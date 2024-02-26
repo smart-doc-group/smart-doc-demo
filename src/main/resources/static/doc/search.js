@@ -16,30 +16,35 @@ api[0].list[0].list.push({
     order: '1',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/products',
+    methodId: '7740bfcc6c940d6ed60102bb7da0d56f',
     desc: 'Create Product.',
 });
 api[0].list[0].list.push({
     order: '2',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/products',
+    methodId: '228e1aae383acc1fba8a03096e734ed3',
     desc: 'Get all Products list.',
 });
 api[0].list[0].list.push({
     order: '3',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/products/{id}',
+    methodId: '7818174d4278e227ad7916947a59c88f',
     desc: 'Gets Products by id.',
 });
 api[0].list[0].list.push({
     order: '4',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/products/{id}',
+    methodId: 'd29b965a0dde5c2f042f01c3fcba8fed',
     desc: 'Update Product response entity.',
 });
 api[0].list[0].list.push({
     order: '5',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/products/{id}',
+    methodId: '768dd3f602365860cc8a9dcb93244d43',
     desc: 'Delete Product.',
 });
 api[0].list.push({
@@ -53,30 +58,35 @@ api[0].list[1].list.push({
     order: '1',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/users',
+    methodId: '26a49200ae6e9fff9c24eadbfbe1aca8',
     desc: 'Create user.',
 });
 api[0].list[1].list.push({
     order: '2',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/users',
+    methodId: '04c7ef9cf2e9380bf03de78af479b5cc',
     desc: 'Get all users list.',
 });
 api[0].list[1].list.push({
     order: '3',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/users/{id}',
+    methodId: 'f9e81cf35bbffa085f1afdcc89fec80f',
     desc: 'Gets users by id.',
 });
 api[0].list[1].list.push({
     order: '4',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/users/{id}',
+    methodId: 'f640f2a96b01fc20865b4c3f30723a79',
     desc: 'Update user response entity.',
 });
 api[0].list[1].list.push({
     order: '5',
     deprecated: 'false',
     url: 'http://localhost:8080/api/v1/user/{id}',
+    methodId: '60bf357c30d3251e4a40459e96c8fb1a',
     desc: 'Delete user.',
 });
 api[0].list.push({
@@ -108,6 +118,7 @@ function keyDownSearch(e) {
                         order: apiData.order,
                         desc: apiData.desc,
                         link: apiData.link,
+                        alias: apiData.alias,
                         list: apiData.list
                     });
                 } else {
@@ -126,6 +137,7 @@ function keyDownSearch(e) {
                             order: apiData.order,
                             desc: apiData.desc,
                             link: apiData.link,
+                            alias: apiData.alias,
                             list: methodListTemp
                         };
                         searchArr.push(data);
@@ -188,7 +200,7 @@ function buildAccordion(apiGroups, liClass, display) {
             let order = apiGroups[0].order;
             for (let j = 0; j < apiData.length; j++) {
                 html += '<li class="'+liClass+'">';
-                html += '<a class="dd" href="#_'+order+'_'+apiData[j].order+'_' + apiData[j].link + '">' + apiData[j].order + '.&nbsp;' + apiData[j].desc + '</a>';
+                html += '<a class="dd" href="#' + apiData[j].alias + '">' + apiData[j].order + '.&nbsp;' + apiData[j].desc + '</a>';
                 html += '<ul class="sectlevel2" style="'+display+'">';
                 let doc = apiData[j].list;
                 for (let m = 0; m < doc.length; m++) {
@@ -198,7 +210,7 @@ function buildAccordion(apiGroups, liClass, display) {
                     } else {
                         spanString='<span>';
                     }
-                    html += '<li><a href="#_'+order+'_' + apiData[j].order + '_' + doc[m].order + '_' + doc[m].desc + '">' + apiData[j].order + '.' + doc[m].order + '.&nbsp;' + spanString + doc[m].desc + '<span></a> </li>';
+                    html += '<li><a href="#' + doc[m].methodId + '">' + apiData[j].order + '.' + doc[m].order + '.&nbsp;' + spanString + doc[m].desc + '<span></a> </li>';
                 }
                 html += '</ul>';
                 html += '</li>';
@@ -213,7 +225,7 @@ function buildAccordion(apiGroups, liClass, display) {
                 let apiData = apiGroup.list;
                 for (let j = 0; j < apiData.length; j++) {
                     html += '<li class="'+liClass+'">';
-                    html += '<a class="dd" href="#_'+apiGroup.order+'_'+ apiData[j].order + '_'+ apiData[j].link + '">' +apiGroup.order+'.'+ apiData[j].order + '.&nbsp;' + apiData[j].desc + '</a>';
+                    html += '<a class="dd" href="#' + apiData[j].alias + '">' +apiGroup.order+'.'+ apiData[j].order + '.&nbsp;' + apiData[j].desc + '</a>';
                     html += '<ul class="sectlevel2" style="'+display+'">';
                     let doc = apiData[j].list;
                     for (let m = 0; m < doc.length; m++) {
@@ -223,7 +235,7 @@ function buildAccordion(apiGroups, liClass, display) {
                        } else {
                            spanString='<span>';
                        }
-                       html += '<li><a href="#_'+apiGroup.order+'_' + apiData[j].order + '_' + doc[m].order + '_' + doc[m].desc + '">'+apiGroup.order+'.' + apiData[j].order + '.' + doc[m].order + '.&nbsp;' + spanString + doc[m].desc + '<span></a> </li>';
+                       html += '<li><a href="#' + doc[m].methodId + '">'+apiGroup.order+'.' + apiData[j].order + '.' + doc[m].order + '.&nbsp;' + spanString + doc[m].desc + '<span></a> </li>';
                    }
                     html += '</ul>';
                     html += '</li>';

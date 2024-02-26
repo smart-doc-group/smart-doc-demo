@@ -1,200 +1,284 @@
 {
   "components": {
     "schemas": {
-      "ResponseResultProduct": {
+      "ecaef527f93df6160c8100e78fa961fb": {
         "properties": {
           "success": {
             "format": "boolean",
-            "description": "success\n",
-            "type": "boolean"
+            "description": "success",
+            "type": "boolean",
+            "example": "true"
           },
           "status": {
             "format": "string",
-            "description": "response status\n",
-            "type": "string"
+            "description": "response status",
+            "type": "string",
+            "example": "200"
           },
           "message": {
             "format": "string",
-            "description": "error msg\n",
-            "type": "string"
+            "description": "error msg",
+            "type": "string",
+            "example": ""
           },
           "data": {
-            "description": "response data\n(object)",
+            "description": "response data(object)",
             "type": "object",
-            "$ref": "#/components/schemas/Product"
+            "$ref": "#/components/schemas/a474a2a923ca60546fbcf3b088424c09"
           },
           "timestamp": {
             "format": "string",
-            "description": "response timestamp\n",
-            "type": "string"
+            "description": "response timestamp",
+            "type": "string",
+            "example": ""
           }
         }
       },
-      "User": {
+      "00d103fc108eeb2e21b32747e551110d": {
+        "properties": {
+          "success": {
+            "format": "boolean",
+            "description": "success",
+            "type": "boolean",
+            "example": "true"
+          },
+          "status": {
+            "format": "string",
+            "description": "response status",
+            "type": "string",
+            "example": "200"
+          },
+          "message": {
+            "format": "string",
+            "description": "error msg",
+            "type": "string",
+            "example": ""
+          },
+          "data": {
+            "description": "response data",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/a474a2a923ca60546fbcf3b088424c09"
+            }
+          },
+          "timestamp": {
+            "format": "string",
+            "description": "response timestamp",
+            "type": "string",
+            "example": ""
+          }
+        }
+      },
+      "defaultPrimitive": {
+        "format": "string",
+        "type": "string"
+      },
+      "2164965f0e6d67b59a0185c1f0ee05c2": {
         "properties": {
           "id": {
             "format": "int64",
-            "description": "user id\n",
-            "type": "number"
+            "description": "user id",
+            "type": "number",
+            "example": "1"
           },
           "firstName": {
             "format": "string",
-            "description": "first name\n",
+            "description": "first name",
             "type": "string"
           },
           "lastName": {
             "format": "string",
-            "description": "last name\n",
+            "description": "last name",
             "type": "string"
           },
           "email": {
             "format": "string",
-            "description": "email address\n",
+            "description": "email address",
             "type": "string"
           }
         }
       },
-      "ResponseResultUser": {
-        "properties": {
-          "success": {
-            "format": "boolean",
-            "description": "success\n",
-            "type": "boolean"
-          },
-          "status": {
-            "format": "string",
-            "description": "response status\n",
-            "type": "string"
-          },
-          "message": {
-            "format": "string",
-            "description": "error msg\n",
-            "type": "string"
-          },
-          "data": {
-            "description": "response data\n(object)",
-            "type": "object",
-            "$ref": "#/components/schemas/User"
-          },
-          "timestamp": {
-            "format": "string",
-            "description": "response timestamp\n",
-            "type": "string"
-          }
-        }
-      },
-      "ResponseResultListUser": {
-        "properties": {
-          "success": {
-            "format": "boolean",
-            "description": "success\n",
-            "type": "boolean"
-          },
-          "status": {
-            "format": "string",
-            "description": "response status\n",
-            "type": "string"
-          },
-          "message": {
-            "format": "string",
-            "description": "error msg\n",
-            "type": "string"
-          },
-          "data": {
-            "description": "response data\n",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/User"
-            }
-          },
-          "timestamp": {
-            "format": "string",
-            "description": "response timestamp\n",
-            "type": "string"
-          }
-        }
-      },
-      "Product": {
+      "3ca448ae419a4143c7744066965a0822": {
         "properties": {
           "id": {
             "format": "int64",
-            "description": "Product id\n",
-            "type": "number"
+            "description": "Product id",
+            "type": "number",
+            "example": "0"
           },
           "name": {
             "format": "string",
-            "description": "Product name\n",
+            "description": "Product name",
             "type": "string"
           },
           "price": {
             "format": "double",
-            "description": "Product price\n",
-            "type": "number"
+            "description": "Product price",
+            "type": "number",
+            "example": "0.0"
           },
           "pictureUrl": {
             "format": "string",
-            "description": "Product picture url\n",
+            "description": "Product picture url",
             "type": "string"
           }
         }
       },
-      "ResponseResultBoolean": {
+      "11f216f6f7c9d4a04592b8fd29c84aa8": {
         "properties": {
           "success": {
             "format": "boolean",
-            "description": "success\n",
-            "type": "boolean"
+            "description": "success",
+            "type": "boolean",
+            "example": "true"
           },
           "status": {
             "format": "string",
-            "description": "response status\n",
-            "type": "string"
+            "description": "response status",
+            "type": "string",
+            "example": "200"
           },
           "message": {
             "format": "string",
-            "description": "error msg\n",
-            "type": "string"
+            "description": "error msg",
+            "type": "string",
+            "example": ""
+          },
+          "data": {
+            "description": "response data(object)",
+            "type": "object",
+            "$ref": "#/components/schemas/026c60db92a8441bfdfd0cee5b1b7c8f"
+          },
+          "timestamp": {
+            "format": "string",
+            "description": "response timestamp",
+            "type": "string",
+            "example": ""
+          }
+        }
+      },
+      "7422e15ede44c49636380335dce112b1": {
+        "properties": {
+          "success": {
+            "format": "boolean",
+            "description": "success",
+            "type": "boolean",
+            "example": "true"
+          },
+          "status": {
+            "format": "string",
+            "description": "response status",
+            "type": "string",
+            "example": "200"
+          },
+          "message": {
+            "format": "string",
+            "description": "error msg",
+            "type": "string",
+            "example": ""
           },
           "data": {
             "format": "boolean",
-            "description": "response data\n",
+            "description": "response data",
             "type": "boolean"
           },
           "timestamp": {
             "format": "string",
-            "description": "response timestamp\n",
-            "type": "string"
+            "description": "response timestamp",
+            "type": "string",
+            "example": ""
           }
         }
       },
-      "ResponseResultListProduct": {
+      "d751713988987e9331980363e24189ce": {},
+      "60b6357c1faf83b8ffa3caf113622793": {
         "properties": {
           "success": {
             "format": "boolean",
-            "description": "success\n",
-            "type": "boolean"
+            "description": "success",
+            "type": "boolean",
+            "example": "true"
           },
           "status": {
             "format": "string",
-            "description": "response status\n",
-            "type": "string"
+            "description": "response status",
+            "type": "string",
+            "example": "200"
           },
           "message": {
             "format": "string",
-            "description": "error msg\n",
-            "type": "string"
+            "description": "error msg",
+            "type": "string",
+            "example": ""
           },
           "data": {
-            "description": "response data\n",
+            "description": "response data",
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Product"
+              "$ref": "#/components/schemas/026c60db92a8441bfdfd0cee5b1b7c8f"
             }
           },
           "timestamp": {
             "format": "string",
-            "description": "response timestamp\n",
-            "type": "string"
+            "description": "response timestamp",
+            "type": "string",
+            "example": ""
+          }
+        }
+      },
+      "026c60db92a8441bfdfd0cee5b1b7c8f": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "description": "Product id",
+            "type": "number",
+            "example": "0"
+          },
+          "name": {
+            "format": "string",
+            "description": "Product name",
+            "type": "string",
+            "example": ""
+          },
+          "price": {
+            "format": "double",
+            "description": "Product price",
+            "type": "number",
+            "example": "0.0"
+          },
+          "pictureUrl": {
+            "format": "string",
+            "description": "Product picture url",
+            "type": "string",
+            "example": ""
+          }
+        }
+      },
+      "a474a2a923ca60546fbcf3b088424c09": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "description": "user id",
+            "type": "number",
+            "example": "1"
+          },
+          "firstName": {
+            "format": "string",
+            "description": "first name",
+            "type": "string",
+            "example": ""
+          },
+          "lastName": {
+            "format": "string",
+            "description": "last name",
+            "type": "string",
+            "example": ""
+          },
+          "email": {
+            "format": "string",
+            "description": "email address",
+            "type": "string",
+            "example": ""
           }
         }
       }
@@ -211,7 +295,6 @@
       "put": {
         "summary": "Update user response entity.",
         "deprecated": false,
-        "description": "Update user response entity.",
         "tags": [
           "The type User controller."
         ],
@@ -219,12 +302,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/2164965f0e6d67b59a0185c1f0ee05c2"
               },
               "examples": {
                 "json": {
                   "summary": "test data",
-                  "value": "{\n  \"id\": 1,\n  \"firstName\": \"dexter.wisozk\",\n  \"lastName\": \"dexter.wisozk\",\n  \"email\": \"austin.grady@hotmail.com\"\n}"
+                  "value": "{\n  \"id\": 1,\n  \"firstName\": \"\",\n  \"lastName\": \"\",\n  \"email\": \"\"\n}"
                 }
               }
             }
@@ -236,19 +319,19 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseResultUser"
+                  "$ref": "#/components/schemas/ecaef527f93df6160c8100e78fa961fb"
                 },
                 "examples": {
                   "json": {
                     "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": 1,\n    \"firstName\": \"dexter.wisozk\",\n    \"lastName\": \"dexter.wisozk\",\n    \"email\": \"austin.grady@hotmail.com\"\n  },\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"id\": 1,\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"email\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "apiv1users{id}",
+        "operationId": "api-v1-users-{id}-PUT",
         "parameters": [
           {
             "schema": {
@@ -256,9 +339,8 @@
               "type": "number"
             },
             "in": "path",
-            "description": "     the user id\n",
+            "description": "     the user id",
             "required": true,
-            "example": "1",
             "name": "id"
           }
         ]
@@ -266,7 +348,6 @@
       "get": {
         "summary": "Gets users by id.",
         "deprecated": false,
-        "description": "Gets users by id.",
         "tags": [
           "The type User controller."
         ],
@@ -276,19 +357,19 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseResultUser"
+                  "$ref": "#/components/schemas/ecaef527f93df6160c8100e78fa961fb"
                 },
                 "examples": {
                   "json": {
                     "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": 1,\n    \"firstName\": \"dexter.wisozk\",\n    \"lastName\": \"dexter.wisozk\",\n    \"email\": \"austin.grady@hotmail.com\"\n  },\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"id\": 1,\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"email\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "apiv1users{id}",
+        "operationId": "api-v1-users-{id}-GET",
         "parameters": [
           {
             "schema": {
@@ -296,9 +377,8 @@
               "type": "number"
             },
             "in": "path",
-            "description": "the user id\n",
+            "description": "the user id",
             "required": true,
-            "example": "1",
             "name": "id"
           }
         ]
@@ -308,7 +388,6 @@
       "post": {
         "summary": "Create user.",
         "deprecated": false,
-        "description": "Create user.",
         "tags": [
           "The type User controller."
         ],
@@ -316,12 +395,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "$ref": "#/components/schemas/2164965f0e6d67b59a0185c1f0ee05c2"
               },
               "examples": {
                 "json": {
                   "summary": "test data",
-                  "value": "{\n  \"id\": 1,\n  \"firstName\": \"dexter.wisozk\",\n  \"lastName\": \"dexter.wisozk\",\n  \"email\": \"austin.grady@hotmail.com\"\n}"
+                  "value": "{\n  \"id\": 1,\n  \"firstName\": \"\",\n  \"lastName\": \"\",\n  \"email\": \"\"\n}"
                 }
               }
             }
@@ -333,25 +412,24 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseResultUser"
+                  "$ref": "#/components/schemas/ecaef527f93df6160c8100e78fa961fb"
                 },
                 "examples": {
                   "json": {
                     "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": 1,\n    \"firstName\": \"dexter.wisozk\",\n    \"lastName\": \"dexter.wisozk\",\n    \"email\": \"austin.grady@hotmail.com\"\n  },\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"id\": 1,\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"email\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "apiv1users",
+        "operationId": "api-v1-users-POST",
         "parameters": []
       },
       "get": {
         "summary": "Get all users list.",
         "deprecated": false,
-        "description": "Get all users list.",
         "tags": [
           "The type User controller."
         ],
@@ -361,19 +439,19 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseResultListUser"
+                  "$ref": "#/components/schemas/00d103fc108eeb2e21b32747e551110d"
                 },
                 "examples": {
                   "json": {
                     "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"firstName\": \"dexter.wisozk\",\n      \"lastName\": \"dexter.wisozk\",\n      \"email\": \"austin.grady@hotmail.com\"\n    }\n  ],\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"firstName\": \"\",\n      \"lastName\": \"\",\n      \"email\": \"\"\n    }\n  ],\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "apiv1users",
+        "operationId": "api-v1-users-GET",
         "parameters": []
       }
     },
@@ -381,7 +459,6 @@
       "delete": {
         "summary": "Delete Product.",
         "deprecated": false,
-        "description": "Delete Product.",
         "tags": [
           "The type Product controller."
         ],
@@ -391,19 +468,19 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseResultBoolean"
+                  "$ref": "#/components/schemas/7422e15ede44c49636380335dce112b1"
                 },
                 "examples": {
                   "json": {
                     "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": true,\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": true,\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "apiv1products{id}",
+        "operationId": "api-v1-products-{id}-DELETE",
         "parameters": [
           {
             "schema": {
@@ -411,9 +488,8 @@
               "type": "number"
             },
             "in": "path",
-            "description": "the Product id\n",
+            "description": "the Product id",
             "required": true,
-            "example": "1",
             "name": "id"
           }
         ]
@@ -421,7 +497,6 @@
       "put": {
         "summary": "Update Product response entity.",
         "deprecated": false,
-        "description": "Update Product response entity.",
         "tags": [
           "The type Product controller."
         ],
@@ -429,12 +504,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Product"
+                "$ref": "#/components/schemas/3ca448ae419a4143c7744066965a0822"
               },
               "examples": {
                 "json": {
                   "summary": "test data",
-                  "value": "{\n  \"id\": 887,\n  \"name\": \"dexter.wisozk\",\n  \"price\": 47.22,\n  \"pictureUrl\": \"www.krystyna-weissnat.com\"\n}"
+                  "value": "{\n  \"id\": 0,\n  \"name\": \"\",\n  \"price\": 0.0,\n  \"pictureUrl\": \"\"\n}"
                 }
               }
             }
@@ -446,19 +521,19 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseResultProduct"
+                  "$ref": "#/components/schemas/11f216f6f7c9d4a04592b8fd29c84aa8"
                 },
                 "examples": {
                   "json": {
                     "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": 989,\n    \"name\": \"dexter.wisozk\",\n    \"price\": 37.65,\n    \"pictureUrl\": \"www.krystyna-weissnat.com\"\n  },\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"id\": 0,\n    \"name\": \"\",\n    \"price\": 0.0,\n    \"pictureUrl\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "apiv1products{id}",
+        "operationId": "api-v1-products-{id}-PUT",
         "parameters": [
           {
             "schema": {
@@ -466,9 +541,8 @@
               "type": "number"
             },
             "in": "path",
-            "description": "     the Product id\n",
+            "description": "     the Product id",
             "required": true,
-            "example": "1",
             "name": "id"
           }
         ]
@@ -476,7 +550,6 @@
       "get": {
         "summary": "Gets Products by id.",
         "deprecated": false,
-        "description": "Gets Products by id.",
         "tags": [
           "The type Product controller."
         ],
@@ -486,19 +559,19 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseResultProduct"
+                  "$ref": "#/components/schemas/11f216f6f7c9d4a04592b8fd29c84aa8"
                 },
                 "examples": {
                   "json": {
                     "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": 118,\n    \"name\": \"dexter.wisozk\",\n    \"price\": 55.30,\n    \"pictureUrl\": \"www.krystyna-weissnat.com\"\n  },\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"id\": 0,\n    \"name\": \"\",\n    \"price\": 0.0,\n    \"pictureUrl\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "apiv1products{id}",
+        "operationId": "api-v1-products-{id}-GET",
         "parameters": [
           {
             "schema": {
@@ -506,9 +579,8 @@
               "type": "number"
             },
             "in": "path",
-            "description": "the Product id\n",
+            "description": "the Product id",
             "required": true,
-            "example": "1",
             "name": "id"
           }
         ]
@@ -518,7 +590,6 @@
       "post": {
         "summary": "Create Product.",
         "deprecated": false,
-        "description": "Create Product.",
         "tags": [
           "The type Product controller."
         ],
@@ -526,12 +597,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Product"
+                "$ref": "#/components/schemas/3ca448ae419a4143c7744066965a0822"
               },
               "examples": {
                 "json": {
                   "summary": "test data",
-                  "value": "{\n  \"id\": 9,\n  \"name\": \"dexter.wisozk\",\n  \"price\": 47.88,\n  \"pictureUrl\": \"www.krystyna-weissnat.com\"\n}"
+                  "value": "{\n  \"id\": 0,\n  \"name\": \"\",\n  \"price\": 0.0,\n  \"pictureUrl\": \"\"\n}"
                 }
               }
             }
@@ -543,25 +614,24 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseResultProduct"
+                  "$ref": "#/components/schemas/11f216f6f7c9d4a04592b8fd29c84aa8"
                 },
                 "examples": {
                   "json": {
                     "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": 75,\n    \"name\": \"dexter.wisozk\",\n    \"price\": 75.94,\n    \"pictureUrl\": \"www.krystyna-weissnat.com\"\n  },\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"id\": 0,\n    \"name\": \"\",\n    \"price\": 0.0,\n    \"pictureUrl\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "apiv1products",
+        "operationId": "api-v1-products-POST",
         "parameters": []
       },
       "get": {
         "summary": "Get all Products list.",
         "deprecated": false,
-        "description": "Get all Products list.",
         "tags": [
           "The type Product controller."
         ],
@@ -571,70 +641,26 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseResultListProduct"
+                  "$ref": "#/components/schemas/60b6357c1faf83b8ffa3caf113622793"
                 },
                 "examples": {
                   "json": {
                     "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": [\n    {\n      \"id\": 805,\n      \"name\": \"dexter.wisozk\",\n      \"price\": 10.52,\n      \"pictureUrl\": \"www.krystyna-weissnat.com\"\n    }\n  ],\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": [\n    {\n      \"id\": 0,\n      \"name\": \"\",\n      \"price\": 0.0,\n      \"pictureUrl\": \"\"\n    }\n  ],\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "apiv1products",
-        "parameters": [
-          {
-            "schema": {
-              "format": "int64",
-              "type": "number"
-            },
-            "in": "query",
-            "description": "Product id\n",
-            "required": false,
-            "example": "783",
-            "name": "id"
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "description": "Product name\n",
-            "required": false,
-            "example": "dexter.wisozk",
-            "name": "name"
-          },
-          {
-            "schema": {
-              "format": "double",
-              "type": "number"
-            },
-            "in": "query",
-            "description": "Product price\n",
-            "required": false,
-            "example": "75.11",
-            "name": "price"
-          },
-          {
-            "schema": {
-              "type": "string"
-            },
-            "in": "query",
-            "description": "Product picture url\n",
-            "required": false,
-            "example": "www.krystyna-weissnat.com",
-            "name": "pictureUrl"
-          }
-        ]
+        "operationId": "api-v1-products-GET",
+        "parameters": []
       }
     },
     "/api/v1/user/{id}": {
       "delete": {
         "summary": "Delete user.",
         "deprecated": false,
-        "description": "Delete user.",
         "tags": [
           "The type User controller."
         ],
@@ -644,19 +670,19 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseResultBoolean"
+                  "$ref": "#/components/schemas/7422e15ede44c49636380335dce112b1"
                 },
                 "examples": {
                   "json": {
                     "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"success\",\n  \"data\": true,\n  \"timestamp\": \"2022-08-31 23:49:05\"\n}"
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": true,\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
             }
           }
         },
-        "operationId": "apiv1user{id}",
+        "operationId": "api-v1-user-{id}-DELETE",
         "parameters": [
           {
             "schema": {
@@ -664,9 +690,8 @@
               "type": "number"
             },
             "in": "path",
-            "description": "the user id\n",
+            "description": "the user id",
             "required": true,
-            "example": "1",
             "name": "id"
           }
         ]
@@ -679,12 +704,12 @@
   },
   "tags": [
     {
-      "name": "The type Product controller.",
-      "description": "The type Product controller."
+      "name": "UserController",
+      "description": "The type User controller."
     },
     {
-      "name": "The type User controller.",
-      "description": "The type User controller."
+      "name": "ProductController",
+      "description": "The type Product controller."
     }
   ]
 }
