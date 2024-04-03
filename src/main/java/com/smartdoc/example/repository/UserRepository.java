@@ -13,22 +13,31 @@ import java.util.stream.Collectors;
 @Repository
 public class UserRepository {
 
-    private Map<Long, User> books = new ConcurrentHashMap<>();
+    private static final Map<Long, User> users = new ConcurrentHashMap<>();
+
+    static {
+        User user = new User();
+        user.setId(1);
+        user.setEmail("123@gmail.com");
+        user.setFirstName("Tom");
+        user.setLastName("King");
+        users.put(1L,user);
+    }
 
     public Optional<User> findById(long id) {
-        return Optional.ofNullable(books.get(id));
+        return Optional.ofNullable(users.get(id));
     }
 
     public void add(User book) {
-        books.put(book.getId(), book);
+        users.put(book.getId(), book);
     }
 
     public List<User> getUsers() {
-        return books.values().stream().collect(Collectors.toList());
+        return users.values().stream().collect(Collectors.toList());
     }
 
     public boolean delete(User user) {
-        return books.remove(user.getId(),user);
+        return users.remove(user.getId(),user);
     }
 
 }
