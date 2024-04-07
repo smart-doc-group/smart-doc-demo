@@ -1,0 +1,54 @@
+version: '3.3'
+
+volumes:
+  prometheus_data: {}
+  grafana_data: {}
+
+networks:
+  monitoring:
+    driver: bridge
+
+services:
+  prometheus:
+    image: prom/prometheus:v2.37.6
+    container_name: prometheus
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./prometheus/:/etc/prometheus/
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+      # Hot reload configuration.
+      - '--web.enable-lifecycle'
+      # API configuration.
+      #- '--web.enable-admin-api'
+      # Maximum retention time for historical data, set to 15 days by default.
+      - '--storage.tsdb.retention.time=30d'
+    networks:
+      - monitoring
+    expose:
+      - '9090'
+    ports:
+      - 9090:9090
+  grafana:
+    image: grafana/grafana:9.4.3
+    container_name: grafana
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    env_file:
+      - ./grafana/config.monitoring
+    networks:
+      - monitoring
+    links:
+      - prometheus
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus

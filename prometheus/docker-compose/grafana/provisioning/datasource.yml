@@ -1,0 +1,17 @@
+# config file version
+apiVersion: 1
+
+deleteDatasources:  # If there is a data source with the name "Prometheus" and orgId 1, delete it first.
+  - name: Prometheus
+    orgId: 1
+
+datasources:  # Configure the data source for Prometheus.
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    orgId: 1
+    url: http://prometheus:9090  # Within the same Docker Compose environment, you can directly access the Prometheus service using its service name.
+    basicAuth: false
+    isDefault: true
+    version: 1
+    editable: true
