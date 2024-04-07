@@ -183,7 +183,7 @@
             "uid": "KfZOdrASz"
           },
           "editorMode": "code",
-          "expr": "sum(rate(Ratio_success_total[$interval]))",
+          "expr": "sum(irate(Ratio_success_total[$interval]))",
           "format": "time_series",
           "instant": false,
           "interval": "",
