@@ -37,7 +37,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 14927,
   "graphTooltip": 1,
-  "id": 2,
+  "id": 6,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -358,7 +358,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(Ratio_failure_total[1m]))/sum(rate(Ratio_total[1m]))",
+          "expr": "sum(rate(Ratio_failure_total[$interval]))/sum(rate(Ratio_total[$interval]))",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -482,7 +482,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(Ratio_total{}[1m]))",
+          "expr": "sum(rate(Ratio_total{}[$interval]))",
           "instant": false,
           "interval": "",
           "legendFormat": "Overall",
@@ -1490,7 +1490,7 @@
         }
       ],
       "timeRegions": [],
-      "title": "90th Pct response times",
+      "title": "95th Pct response times",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1634,7 +1634,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "sum(rate(Ratio_total[1m])) by (label)",
+          "expr": "sum(rate(Ratio_total[$interval])) by (label)",
           "instant": false,
           "interval": "",
           "legendFormat": "{{label}}",
@@ -2316,22 +2316,32 @@
         "auto_min": "10s",
         "current": {
           "selected": false,
-          "text": "5s",
-          "value": "5s"
+          "text": "30s",
+          "value": "30s"
         },
         "hide": 2,
         "label": "interval",
         "name": "interval",
         "options": [
           {
-            "selected": false,
-            "text": "1s",
-            "value": "1s"
+            "selected": true,
+            "text": "30s",
+            "value": "30s"
           },
           {
-            "selected": true,
-            "text": "5s",
-            "value": "5s"
+            "selected": false,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "5m",
+            "value": "5m"
+          },
+          {
+            "selected": false,
+            "text": "10m",
+            "value": "10m"
           },
           {
             "selected": false,
@@ -2359,7 +2369,7 @@
             "value": "1d"
           }
         ],
-        "query": "1s,5s,15m,1h,6h,12h,1d",
+        "query": "30s,1m,5m,10m,15m,1h,6h,12h,1d",
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
@@ -2367,14 +2377,12 @@
     ]
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
     "hidden": false,
     "refresh_intervals": [
-      "5s",
-      "10s",
       "30s",
       "1m",
       "5m",
@@ -2399,6 +2407,6 @@
   "timezone": "browser",
   "title": "JMeter_Promethius_Grafana",
   "uid": "keLoMYMnk",
-  "version": 24,
+  "version": 9,
   "weekStart": ""
 }
