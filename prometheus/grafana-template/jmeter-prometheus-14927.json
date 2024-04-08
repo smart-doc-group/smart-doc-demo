@@ -2405,7 +2405,7 @@
     ]
   },
   "timezone": "browser",
-  "title": "JMeter_Promethius_Grafana",
+  "title": "JMeter_Prometheus_Grafana",
   "uid": "keLoMYMnk",
   "version": 9,
   "weekStart": ""
