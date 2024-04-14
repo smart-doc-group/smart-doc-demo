@@ -9,6 +9,22 @@ networks:
     driver: bridge
 
 services:
+  jmeter:
+    image: registry.cn-hangzhou.aliyuncs.com/shalousun/jmeter:latest
+    platform: linux/amd64
+    container_name: jmeter
+    restart: always
+    command:
+      - '-n -t /mnt/jmeter/smart-doc-demo.jmx'
+      - '-l /mnt/jmeter/result.jtl'
+    volumes:
+      - ./jmeter:/mnt/jmeter
+    networks:
+      - monitoring
+    expose:
+      - '9270'
+    ports:
+      - "9270:9270"
   smart-doc-demo:
     image: registry.cn-hangzhou.aliyuncs.com/shalousun/smart-doc-demo:latest
     platform: linux/amd64

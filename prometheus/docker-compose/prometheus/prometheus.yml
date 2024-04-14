@@ -2,4 +2,4 @@ scrape_configs:
   - job_name: 'jmeter'
     scrape_interval: 15s
     static_configs:
-        - targets: [ '192.168.1.4:9270' ]
+        - targets: [ 'jmeter:9270' ]
