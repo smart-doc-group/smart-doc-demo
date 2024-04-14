@@ -89,6 +89,9 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <includeSystemScope>true</includeSystemScope>
+                    <image>
+                        <name>registry.cn-hangzhou.aliyuncs.com/shalousun/smart-doc-demo:latest</name>
+                    </image>
                 </configuration>
             </plugin>
             <plugin>
