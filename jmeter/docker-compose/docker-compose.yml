@@ -15,7 +15,7 @@ services:
     container_name: jmeter
     restart: always
     command:
-      - '-n -t /mnt/jmeter/smart-doc-demo.jmx'
+      - '-t /mnt/jmeter/smart-doc-demo.jmx'
       - '-l /mnt/jmeter/result.jtl'
     volumes:
       - ./jmeter:/mnt/jmeter
@@ -25,6 +25,8 @@ services:
       - '9270'
     ports:
       - "9270:9270"
+    depends_on:
+      - smart-doc-demo
   smart-doc-demo:
     image: registry.cn-hangzhou.aliyuncs.com/shalousun/smart-doc-demo:latest
     platform: linux/amd64
@@ -37,7 +39,7 @@ services:
     expose:
       - '8080'
     ports:
-      - "8080:8080"
+      - "8089:8080"
 
   prometheus:
     image: prom/prometheus:v2.37.6

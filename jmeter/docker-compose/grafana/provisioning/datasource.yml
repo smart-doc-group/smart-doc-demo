@@ -15,3 +15,5 @@ datasources:  # Configure the data source for Prometheus.
     isDefault: true
     version: 1
     editable: true
+    options:
+      path: /etc/grafana/provisioning/templates

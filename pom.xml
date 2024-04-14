@@ -21,7 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
-        <smart-doc.version>3.0.4</smart-doc.version>
+        <smart-doc.version>3.0.3</smart-doc.version>
     </properties>
     <dependencies>
         <!-- spring boot -->
@@ -107,13 +107,6 @@
                         <exclude>com.alibaba:fastjson</exclude>
                     </excludes>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>html</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

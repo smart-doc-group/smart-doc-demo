@@ -13,4 +13,10 @@ generate-doc:
 
 # generate jmeter script
 generate-jmeter:
-	mvn -Dfile.encoding=UTF-8  smart-doc:jmeter
+	mvn -Dmaven.test.skip=true -Dfile.encoding=UTF-8  smart-doc:jmeter
+
+run-jmeter-performance:
+	docker-compose -f jmeter/docker-compose/docker-compose.yml up -d
+
+down-jmeter-performance:
+	docker-compose -f jmeter/docker-compose/docker-compose.yml down
