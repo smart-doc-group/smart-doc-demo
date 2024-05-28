@@ -1,104 +1,7 @@
 {
   "components": {
     "schemas": {
-      "ecaef527f93df6160c8100e78fa961fb": {
-        "properties": {
-          "success": {
-            "format": "boolean",
-            "description": "success",
-            "type": "boolean",
-            "example": "true"
-          },
-          "status": {
-            "format": "string",
-            "description": "response status",
-            "type": "string",
-            "example": "200"
-          },
-          "message": {
-            "format": "string",
-            "description": "error msg",
-            "type": "string",
-            "example": ""
-          },
-          "data": {
-            "description": "response data(object)",
-            "type": "object",
-            "$ref": "#/components/schemas/a474a2a923ca60546fbcf3b088424c09"
-          },
-          "timestamp": {
-            "format": "string",
-            "description": "response timestamp",
-            "type": "string",
-            "example": ""
-          }
-        }
-      },
-      "00d103fc108eeb2e21b32747e551110d": {
-        "properties": {
-          "success": {
-            "format": "boolean",
-            "description": "success",
-            "type": "boolean",
-            "example": "true"
-          },
-          "status": {
-            "format": "string",
-            "description": "response status",
-            "type": "string",
-            "example": "200"
-          },
-          "message": {
-            "format": "string",
-            "description": "error msg",
-            "type": "string",
-            "example": ""
-          },
-          "data": {
-            "description": "response data",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/a474a2a923ca60546fbcf3b088424c09"
-            }
-          },
-          "timestamp": {
-            "format": "string",
-            "description": "response timestamp",
-            "type": "string",
-            "example": ""
-          }
-        }
-      },
-      "defaultPrimitive": {
-        "format": "string",
-        "type": "string"
-      },
-      "2164965f0e6d67b59a0185c1f0ee05c2": {
-        "properties": {
-          "id": {
-            "format": "int64",
-            "description": "user id",
-            "type": "number",
-            "example": "1"
-          },
-          "firstName": {
-            "format": "string",
-            "description": "first name",
-            "type": "string"
-          },
-          "lastName": {
-            "format": "string",
-            "description": "last name",
-            "type": "string"
-          },
-          "email": {
-            "format": "string",
-            "description": "email address",
-            "type": "string"
-          }
-        }
-      },
-      "3ca448ae419a4143c7744066965a0822": {
+      "fe367ba573749cb59273bc63a28d59b0": {
         "properties": {
           "id": {
             "format": "int64",
@@ -124,7 +27,11 @@
           }
         }
       },
-      "11f216f6f7c9d4a04592b8fd29c84aa8": {
+      "defaultPrimitive": {
+        "format": "string",
+        "type": "string"
+      },
+      "4518fdf3d22f8101e3a1a33986d7abfd": {
         "properties": {
           "success": {
             "format": "boolean",
@@ -141,23 +48,21 @@
           "message": {
             "format": "string",
             "description": "error msg",
-            "type": "string",
-            "example": ""
+            "type": "string"
           },
           "data": {
             "description": "response data(object)",
             "type": "object",
-            "$ref": "#/components/schemas/026c60db92a8441bfdfd0cee5b1b7c8f"
+            "$ref": "#/components/schemas/566238137972f1c269e2e7aa91d19658"
           },
           "timestamp": {
             "format": "string",
             "description": "response timestamp",
-            "type": "string",
-            "example": ""
+            "type": "string"
           }
         }
       },
-      "7422e15ede44c49636380335dce112b1": {
+      "ad60c43627dfb2ade196a91f4103b4ea": {
         "properties": {
           "success": {
             "format": "boolean",
@@ -174,8 +79,150 @@
           "message": {
             "format": "string",
             "description": "error msg",
+            "type": "string"
+          },
+          "data": {
+            "description": "response data",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/96b144b2cb5157d9ba7fd317df776dfa"
+            }
+          },
+          "timestamp": {
+            "format": "string",
+            "description": "response timestamp",
+            "type": "string"
+          }
+        }
+      },
+      "97d926e5cca7e72fee256d6c3de643a3": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "description": "user id",
+            "type": "number",
+            "example": "1"
+          },
+          "firstName": {
+            "format": "string",
+            "description": "first name",
+            "type": "string"
+          },
+          "lastName": {
+            "format": "string",
+            "description": "last name",
+            "type": "string"
+          },
+          "email": {
+            "format": "string",
+            "description": "email address",
+            "type": "string"
+          }
+        }
+      },
+      "96b144b2cb5157d9ba7fd317df776dfa": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "description": "user id",
+            "type": "number",
+            "example": "1"
+          },
+          "firstName": {
+            "format": "string",
+            "description": "first name",
+            "type": "string"
+          },
+          "lastName": {
+            "format": "string",
+            "description": "last name",
+            "type": "string"
+          },
+          "email": {
+            "format": "string",
+            "description": "email address",
+            "type": "string"
+          }
+        }
+      },
+      "566238137972f1c269e2e7aa91d19658": {
+        "properties": {
+          "id": {
+            "format": "int64",
+            "description": "Product id",
+            "type": "number",
+            "example": "0"
+          },
+          "name": {
+            "format": "string",
+            "description": "Product name",
+            "type": "string"
+          },
+          "price": {
+            "format": "double",
+            "description": "Product price",
+            "type": "number",
+            "example": "0.0"
+          },
+          "pictureUrl": {
+            "format": "string",
+            "description": "Product picture url",
+            "type": "string"
+          }
+        }
+      },
+      "d751713988987e9331980363e24189ce": {},
+      "7ae3ddbad1120c4346da5ec323af021b": {
+        "properties": {
+          "success": {
+            "format": "boolean",
+            "description": "success",
+            "type": "boolean",
+            "example": "true"
+          },
+          "status": {
+            "format": "string",
+            "description": "response status",
             "type": "string",
-            "example": ""
+            "example": "200"
+          },
+          "message": {
+            "format": "string",
+            "description": "error msg",
+            "type": "string"
+          },
+          "data": {
+            "description": "response data",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/566238137972f1c269e2e7aa91d19658"
+            }
+          },
+          "timestamp": {
+            "format": "string",
+            "description": "response timestamp",
+            "type": "string"
+          }
+        }
+      },
+      "31546d98aaf184648c833557a22ae020": {
+        "properties": {
+          "success": {
+            "format": "boolean",
+            "description": "success",
+            "type": "boolean",
+            "example": "true"
+          },
+          "status": {
+            "format": "string",
+            "description": "response status",
+            "type": "string",
+            "example": "200"
+          },
+          "message": {
+            "format": "string",
+            "description": "error msg",
+            "type": "string"
           },
           "data": {
             "format": "boolean",
@@ -185,13 +232,11 @@
           "timestamp": {
             "format": "string",
             "description": "response timestamp",
-            "type": "string",
-            "example": ""
+            "type": "string"
           }
         }
       },
-      "d751713988987e9331980363e24189ce": {},
-      "60b6357c1faf83b8ffa3caf113622793": {
+      "90ec1aeeda76b6b7ef4a580d6ed2c544": {
         "properties": {
           "success": {
             "format": "boolean",
@@ -208,77 +253,17 @@
           "message": {
             "format": "string",
             "description": "error msg",
-            "type": "string",
-            "example": ""
+            "type": "string"
           },
           "data": {
-            "description": "response data",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/026c60db92a8441bfdfd0cee5b1b7c8f"
-            }
+            "description": "response data(object)",
+            "type": "object",
+            "$ref": "#/components/schemas/96b144b2cb5157d9ba7fd317df776dfa"
           },
           "timestamp": {
             "format": "string",
             "description": "response timestamp",
-            "type": "string",
-            "example": ""
-          }
-        }
-      },
-      "026c60db92a8441bfdfd0cee5b1b7c8f": {
-        "properties": {
-          "id": {
-            "format": "int64",
-            "description": "Product id",
-            "type": "number",
-            "example": "0"
-          },
-          "name": {
-            "format": "string",
-            "description": "Product name",
-            "type": "string",
-            "example": ""
-          },
-          "price": {
-            "format": "double",
-            "description": "Product price",
-            "type": "number",
-            "example": "0.0"
-          },
-          "pictureUrl": {
-            "format": "string",
-            "description": "Product picture url",
-            "type": "string",
-            "example": ""
-          }
-        }
-      },
-      "a474a2a923ca60546fbcf3b088424c09": {
-        "properties": {
-          "id": {
-            "format": "int64",
-            "description": "user id",
-            "type": "number",
-            "example": "1"
-          },
-          "firstName": {
-            "format": "string",
-            "description": "first name",
-            "type": "string",
-            "example": ""
-          },
-          "lastName": {
-            "format": "string",
-            "description": "last name",
-            "type": "string",
-            "example": ""
-          },
-          "email": {
-            "format": "string",
-            "description": "email address",
-            "type": "string",
-            "example": ""
+            "type": "string"
           }
         }
       }
@@ -286,7 +271,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:8080"
+      "url": "http://smart-doc-demo:8080"
     }
   ],
   "openapi": "3.0.3",
@@ -302,7 +287,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/2164965f0e6d67b59a0185c1f0ee05c2"
+                "$ref": "#/components/schemas/97d926e5cca7e72fee256d6c3de643a3"
               },
               "examples": {
                 "json": {
@@ -319,7 +304,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ecaef527f93df6160c8100e78fa961fb"
+                  "$ref": "#/components/schemas/90ec1aeeda76b6b7ef4a580d6ed2c544"
                 },
                 "examples": {
                   "json": {
@@ -341,6 +326,7 @@
             "in": "path",
             "description": "     the user id",
             "required": true,
+            "example": "1",
             "name": "id"
           }
         ]
@@ -357,7 +343,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ecaef527f93df6160c8100e78fa961fb"
+                  "$ref": "#/components/schemas/90ec1aeeda76b6b7ef4a580d6ed2c544"
                 },
                 "examples": {
                   "json": {
@@ -379,6 +365,7 @@
             "in": "path",
             "description": "the user id",
             "required": true,
+            "example": "1",
             "name": "id"
           }
         ]
@@ -395,7 +382,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/2164965f0e6d67b59a0185c1f0ee05c2"
+                "$ref": "#/components/schemas/97d926e5cca7e72fee256d6c3de643a3"
               },
               "examples": {
                 "json": {
@@ -412,7 +399,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ecaef527f93df6160c8100e78fa961fb"
+                  "$ref": "#/components/schemas/90ec1aeeda76b6b7ef4a580d6ed2c544"
                 },
                 "examples": {
                   "json": {
@@ -439,7 +426,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/00d103fc108eeb2e21b32747e551110d"
+                  "$ref": "#/components/schemas/ad60c43627dfb2ade196a91f4103b4ea"
                 },
                 "examples": {
                   "json": {
@@ -468,7 +455,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/7422e15ede44c49636380335dce112b1"
+                  "$ref": "#/components/schemas/31546d98aaf184648c833557a22ae020"
                 },
                 "examples": {
                   "json": {
@@ -490,6 +477,7 @@
             "in": "path",
             "description": "the Product id",
             "required": true,
+            "example": "1",
             "name": "id"
           }
         ]
@@ -504,7 +492,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/3ca448ae419a4143c7744066965a0822"
+                "$ref": "#/components/schemas/fe367ba573749cb59273bc63a28d59b0"
               },
               "examples": {
                 "json": {
@@ -521,7 +509,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/11f216f6f7c9d4a04592b8fd29c84aa8"
+                  "$ref": "#/components/schemas/4518fdf3d22f8101e3a1a33986d7abfd"
                 },
                 "examples": {
                   "json": {
@@ -543,6 +531,7 @@
             "in": "path",
             "description": "     the Product id",
             "required": true,
+            "example": "1",
             "name": "id"
           }
         ]
@@ -559,7 +548,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/11f216f6f7c9d4a04592b8fd29c84aa8"
+                  "$ref": "#/components/schemas/4518fdf3d22f8101e3a1a33986d7abfd"
                 },
                 "examples": {
                   "json": {
@@ -581,6 +570,7 @@
             "in": "path",
             "description": "the Product id",
             "required": true,
+            "example": "1",
             "name": "id"
           }
         ]
@@ -597,7 +587,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/3ca448ae419a4143c7744066965a0822"
+                "$ref": "#/components/schemas/fe367ba573749cb59273bc63a28d59b0"
               },
               "examples": {
                 "json": {
@@ -614,7 +604,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/11f216f6f7c9d4a04592b8fd29c84aa8"
+                  "$ref": "#/components/schemas/4518fdf3d22f8101e3a1a33986d7abfd"
                 },
                 "examples": {
                   "json": {
@@ -641,7 +631,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/60b6357c1faf83b8ffa3caf113622793"
+                  "$ref": "#/components/schemas/7ae3ddbad1120c4346da5ec323af021b"
                 },
                 "examples": {
                   "json": {
@@ -670,7 +660,7 @@
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/7422e15ede44c49636380335dce112b1"
+                  "$ref": "#/components/schemas/31546d98aaf184648c833557a22ae020"
                 },
                 "examples": {
                   "json": {
@@ -692,6 +682,7 @@
             "in": "path",
             "description": "the user id",
             "required": true,
+            "example": "1",
             "name": "id"
           }
         ]
