@@ -17,7 +17,7 @@ import jakarta.validation.Valid;
  * @author yu 2021/7/24.
  */
 @RestController
-//@RequestMapping("/api/v1")
+@RequestMapping("/api/v1")
 public class ProductController {
     @Resource
     private ProductRepository productRepository;
@@ -28,7 +28,7 @@ public class ProductController {
      * @param product the Product
      * @return The Product
      */
-    @PostMapping("/api/v1/products")
+    @PostMapping("/products")
     public ResponseResult<Product> createProduct(@Valid @RequestBody Product product) {
         productRepository.add(product);
         return ResponseResult.ok();
@@ -39,7 +39,7 @@ public class ProductController {
      *
      * @return the list
      */
-    @GetMapping("/api/v1/products")
+    @GetMapping("/products")
     public ResponseResult<List<Product>> getAllProducts() {
         return ResponseResult.ok().setResultData(productRepository.getProducts());
     }
@@ -50,7 +50,7 @@ public class ProductController {
      * @param productId the Product id|1
      * @return the Products by id
      */
-    @GetMapping("/api/v1/products/{id}")
+    @GetMapping("/products/{id}")
     public ResponseResult<Product> getProductsById(@PathVariable(value = "id") Long productId) {
         Product Product = productRepository.findById(productId).
                 orElseThrow(() -> new ResourceNotFoundException("Product not found on :: " + productId));
@@ -65,7 +65,7 @@ public class ProductController {
      * @param productDetails the Product details
      * @return the response entity
      */
-    @PutMapping("/api/v1/products/{id}")
+    @PutMapping("/products/{id}")
     public ResponseResult<Product> updateProduct(@PathVariable(value = "id") Long productId, @Valid @RequestBody Product productDetails) {
         Product product = productRepository.findById(productId).
                 orElseThrow(() -> new ResourceNotFoundException("Product not found on :: " + productId));
@@ -83,7 +83,7 @@ public class ProductController {
      * @param productId the Product id|1
      * @return the map
      */
-    @DeleteMapping("/api/v1/products/{id}")
+    @DeleteMapping("/products/{id}")
     public ResponseResult<Boolean> deleteProduct(@PathVariable(value = "id") Long productId) {
         Product product = productRepository.findById(productId).
                 orElseThrow(() -> new ResourceNotFoundException("Product not found on :: " + productId));

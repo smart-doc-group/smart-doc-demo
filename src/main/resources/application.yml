@@ -25,8 +25,12 @@ server:
   shutdown: graceful
 
 springdoc:
-  swagger-ui:
-    path: /swagger-ui-custom.html
-    operations-sorter: method
-    #custom path for api docs
-    url: /doc/openapi.json
+  api-docs:
+    enabled: true
+    path: /api-docs
+#  swagger-ui:
+#    enabled: true
+#    path: /swagger-ui-custom.html
+#    operations-sorter: method
+#    #custom path for api docs
+#    url: /doc/openapi.json
