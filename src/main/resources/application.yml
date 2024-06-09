@@ -28,9 +28,9 @@ springdoc:
   api-docs:
     enabled: true
     path: /api-docs
-#  swagger-ui:
-#    enabled: true
-#    path: /swagger-ui-custom.html
-#    operations-sorter: method
-#    #custom path for api docs
-#    url: /doc/openapi.json
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui-custom.html
+    operations-sorter: method
+    #custom path for api docs
+    url: /doc/openapi.json

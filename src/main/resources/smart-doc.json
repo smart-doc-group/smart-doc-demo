@@ -10,9 +10,11 @@
   "createDebugPage": true,//Create a page that can be used to test your APIs like swagger
   "language":"ENGLISH",//support ENGLISH and CHINESE
   "projectName": "smart-doc-demo",
+  "addDefaultHttpStatuses": true,
   "jmeter": {
     "addPrometheusListener": true
   },
+  "componentType": "NORMAL",
   "errorCodeDictionaries": [{ // error code list, no need to set
     "title": "title",
     "enumClassName": "com.smartdoc.example.enums.HttpCodeEnum",
