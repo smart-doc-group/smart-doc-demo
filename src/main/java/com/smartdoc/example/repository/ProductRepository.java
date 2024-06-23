@@ -21,8 +21,9 @@ public class ProductRepository {
         return Optional.ofNullable(products.get(id));
     }
 
-    public void add(Product book) {
-        products.put(book.getId(), book);
+    public Product add(Product product) {
+        products.put(product.getId(), product);
+        return product;
     }
 
     public List<Product> getProducts() {

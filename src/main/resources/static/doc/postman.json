@@ -1,7 +1,7 @@
 {
   "info": {
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_postman_id": "b6aefa87-c957-485e-b260-b8475c6e2e64",
+    "_postman_id": "a1866452-7dd3-4708-bbb7-e95a5eb7025a",
     "name": "smart-doc-demo"
   },
   "item": [
@@ -22,7 +22,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/products",
+              "raw": "http://smart-doc-demo:8080/api/v1/products",
               "protocol": "http",
               "path": [
                 "api",
@@ -30,7 +30,7 @@
                 "products"
               ],
               "host": [
-                "localhost"
+                "smart-doc-demo"
               ],
               "port": "8080",
               "query": [],
@@ -53,7 +53,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/products",
+              "raw": "http://smart-doc-demo:8080/api/v1/products",
               "protocol": "http",
               "path": [
                 "api",
@@ -61,7 +61,7 @@
                 "products"
               ],
               "host": [
-                "localhost"
+                "smart-doc-demo"
               ],
               "port": "8080",
               "query": [],
@@ -84,7 +84,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/products/:id",
+              "raw": "http://smart-doc-demo:8080/api/v1/products/:id",
               "protocol": "http",
               "path": [
                 "api",
@@ -93,7 +93,7 @@
                 ":id"
               ],
               "host": [
-                "localhost"
+                "smart-doc-demo"
               ],
               "port": "8080",
               "query": [],
@@ -124,7 +124,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/products/:id",
+              "raw": "http://smart-doc-demo:8080/api/v1/products/:id",
               "protocol": "http",
               "path": [
                 "api",
@@ -133,7 +133,7 @@
                 ":id"
               ],
               "host": [
-                "localhost"
+                "smart-doc-demo"
               ],
               "port": "8080",
               "query": [],
@@ -162,7 +162,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/products/:id",
+              "raw": "http://smart-doc-demo:8080/api/v1/products/:id",
               "protocol": "http",
               "path": [
                 "api",
@@ -171,7 +171,7 @@
                 ":id"
               ],
               "host": [
-                "localhost"
+                "smart-doc-demo"
               ],
               "port": "8080",
               "query": [],
@@ -207,7 +207,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/users",
+              "raw": "http://smart-doc-demo:8080/api/v1/users",
               "protocol": "http",
               "path": [
                 "api",
@@ -215,7 +215,7 @@
                 "users"
               ],
               "host": [
-                "localhost"
+                "smart-doc-demo"
               ],
               "port": "8080",
               "query": [],
@@ -238,7 +238,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/users",
+              "raw": "http://smart-doc-demo:8080/api/v1/users",
               "protocol": "http",
               "path": [
                 "api",
@@ -246,7 +246,7 @@
                 "users"
               ],
               "host": [
-                "localhost"
+                "smart-doc-demo"
               ],
               "port": "8080",
               "query": [],
@@ -269,7 +269,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/users/:id",
+              "raw": "http://smart-doc-demo:8080/api/v1/users/:id",
               "protocol": "http",
               "path": [
                 "api",
@@ -278,7 +278,7 @@
                 ":id"
               ],
               "host": [
-                "localhost"
+                "smart-doc-demo"
               ],
               "port": "8080",
               "query": [],
@@ -309,7 +309,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/users/:id",
+              "raw": "http://smart-doc-demo:8080/api/v1/users/:id",
               "protocol": "http",
               "path": [
                 "api",
@@ -318,7 +318,7 @@
                 ":id"
               ],
               "host": [
-                "localhost"
+                "smart-doc-demo"
               ],
               "port": "8080",
               "query": [],
@@ -347,7 +347,7 @@
               }
             },
             "url": {
-              "raw": "http://localhost:8080/api/v1/user/:id",
+              "raw": "http://smart-doc-demo:8080/api/v1/user/:id",
               "protocol": "http",
               "path": [
                 "api",
@@ -356,7 +356,7 @@
                 ":id"
               ],
               "host": [
-                "localhost"
+                "smart-doc-demo"
               ],
               "port": "8080",
               "query": [],

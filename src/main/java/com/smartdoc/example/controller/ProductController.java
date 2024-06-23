@@ -31,7 +31,7 @@ public class ProductController {
     @PostMapping("/products")
     public ResponseResult<Product> createProduct(@Valid @RequestBody Product product) {
         productRepository.add(product);
-        return ResponseResult.ok();
+        return ResponseResult.ok().setResultData(product);
     }
 
     /**

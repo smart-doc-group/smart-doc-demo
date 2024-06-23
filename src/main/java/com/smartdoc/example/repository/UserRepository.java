@@ -28,8 +28,9 @@ public class UserRepository {
         return Optional.ofNullable(users.get(id));
     }
 
-    public void add(User book) {
-        users.put(book.getId(), book);
+    public User add(User user) {
+        users.put(user.getId(), user);
+        return user;
     }
 
     public List<User> getUsers() {
