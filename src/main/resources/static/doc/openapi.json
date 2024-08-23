@@ -13,19 +13,73 @@
     {
       "name": "UserController",
       "description": "The type User controller."
-    },
-    {
-      "name": "ProductController",
-      "description": "The type Product controller."
     }
   ],
   "paths": {
-    "/api/v1/users/{id}": {
-      "put": {
-        "summary": "Update user response entity.",
+    "/api/v1/money/": {
+      "post": {
+        "summary": "bind valid",
         "deprecated": false,
         "tags": [
-          "The type User controller."
+          "UserController"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "number"
+              },
+              "examples": {
+                "json": {
+                  "summary": "test data",
+                  "value": "0"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {},
+                "examples": {
+                  "json": {
+                    "summary": "test data",
+                    "value": "Return void."
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseResult"
+                },
+                "examples": {
+                  "json": {
+                    "summary": "response example",
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "api-v1-money-POST",
+        "parameters": []
+      }
+    },
+    "/api/v1/users": {
+      "post": {
+        "summary": "Create user.",
+        "deprecated": false,
+        "tags": [
+          "UserController"
         ],
         "requestBody": {
           "content": {
@@ -36,7 +90,7 @@
               "examples": {
                 "json": {
                   "summary": "test data",
-                  "value": "{\n  \"id\": 1,\n  \"firstName\": \"\",\n  \"lastName\": \"\",\n  \"email\": \"\"\n}"
+                  "value": "{\n  \"balance1\": 0.0,\n  \"balance\": 0,\n  \"id\": 1,\n  \"firstName\": \"\",\n  \"lastName\": \"\",\n  \"email\": \"\"\n}"
                 }
               }
             }
@@ -53,14 +107,14 @@
                 "examples": {
                   "json": {
                     "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"id\": 1,\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"email\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"balance1\": 0.0,\n    \"balance\": 0,\n    \"id\": 1,\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"email\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
             }
           },
-          "400": {
-            "description": "Bad Request",
+          "500": {
+            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -74,9 +128,36 @@
                 }
               }
             }
+          }
+        },
+        "operationId": "api-v1-users-POST",
+        "parameters": []
+      },
+      "get": {
+        "summary": "Get all users list.",
+        "deprecated": false,
+        "tags": [
+          "UserController"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseResultListUser"
+                },
+                "examples": {
+                  "json": {
+                    "summary": "test data",
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": [\n    {\n      \"balance1\": 0.0,\n      \"balance\": 0,\n      \"id\": 1,\n      \"firstName\": \"\",\n      \"lastName\": \"\",\n      \"email\": \"\"\n    }\n  ],\n  \"timestamp\": \"\"\n}"
+                  }
+                }
+              }
+            }
           },
-          "404": {
-            "description": "Not Found",
+          "500": {
+            "description": "Internal Server Error",
             "content": {
               "*/*": {
                 "schema": {
@@ -90,34 +171,46 @@
                 }
               }
             }
-          },
-          "405": {
-            "description": "Method Not Allowed",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
+          }
+        },
+        "operationId": "api-v1-users-GET",
+        "parameters": []
+      }
+    },
+    "/api/v1/users/{id}": {
+      "put": {
+        "summary": "Update user response entity.",
+        "deprecated": false,
+        "tags": [
+          "UserController"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "json": {
+                  "summary": "test data",
+                  "value": "{\n  \"balance1\": 0.0,\n  \"balance\": 0,\n  \"id\": 1,\n  \"firstName\": \"\",\n  \"lastName\": \"\",\n  \"email\": \"\"\n}"
                 }
               }
             }
-          },
-          "415": {
-            "description": "Unsupported Media Type",
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
             "content": {
               "*/*": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
+                  "$ref": "#/components/schemas/ResponseResultUser"
                 },
                 "examples": {
                   "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
+                    "summary": "test data",
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"balance1\": 0.0,\n    \"balance\": 0,\n    \"id\": 1,\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"email\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
@@ -159,7 +252,7 @@
         "summary": "Gets users by id.",
         "deprecated": false,
         "tags": [
-          "The type User controller."
+          "UserController"
         ],
         "responses": {
           "200": {
@@ -172,71 +265,7 @@
                 "examples": {
                   "json": {
                     "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"id\": 1,\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"email\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method Not Allowed",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "415": {
-            "description": "Unsupported Media Type",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
+                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"balance1\": 0.0,\n    \"balance\": 0,\n    \"id\": 1,\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"email\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
@@ -275,848 +304,12 @@
         ]
       }
     },
-    "/api/v1/users": {
-      "post": {
-        "summary": "Create user.",
-        "deprecated": false,
-        "tags": [
-          "The type User controller."
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/User"
-              },
-              "examples": {
-                "json": {
-                  "summary": "test data",
-                  "value": "{\n  \"id\": 1,\n  \"firstName\": \"\",\n  \"lastName\": \"\",\n  \"email\": \"\"\n}"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResultUser"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"id\": 1,\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"email\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method Not Allowed",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "415": {
-            "description": "Unsupported Media Type",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "api-v1-users-POST",
-        "parameters": []
-      },
-      "get": {
-        "summary": "Get all users list.",
-        "deprecated": false,
-        "tags": [
-          "The type User controller."
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResultListUser"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"firstName\": \"\",\n      \"lastName\": \"\",\n      \"email\": \"\"\n    }\n  ],\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method Not Allowed",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "415": {
-            "description": "Unsupported Media Type",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "api-v1-users-GET",
-        "parameters": []
-      }
-    },
-    "/api/v1/products/{id}": {
-      "delete": {
-        "summary": "Delete Product.",
-        "deprecated": false,
-        "tags": [
-          "The type Product controller."
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResultBoolean"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": true,\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method Not Allowed",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "415": {
-            "description": "Unsupported Media Type",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "api-v1-products-{id}-DELETE",
-        "parameters": [
-          {
-            "schema": {
-              "format": "int64",
-              "type": "number"
-            },
-            "in": "path",
-            "description": "the Product id",
-            "required": true,
-            "example": "1",
-            "name": "id"
-          }
-        ]
-      },
-      "put": {
-        "summary": "Update Product response entity.",
-        "deprecated": false,
-        "tags": [
-          "The type Product controller."
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Product"
-              },
-              "examples": {
-                "json": {
-                  "summary": "test data",
-                  "value": "{\n  \"id\": 0,\n  \"name\": \"\",\n  \"price\": 0.0,\n  \"pictureUrl\": \"\"\n}"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResultProduct"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"id\": 0,\n    \"name\": \"\",\n    \"price\": 0.0,\n    \"pictureUrl\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method Not Allowed",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "415": {
-            "description": "Unsupported Media Type",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "api-v1-products-{id}-PUT",
-        "parameters": [
-          {
-            "schema": {
-              "format": "int64",
-              "type": "number"
-            },
-            "in": "path",
-            "description": "     the Product id",
-            "required": true,
-            "example": "1",
-            "name": "id"
-          }
-        ]
-      },
-      "get": {
-        "summary": "Gets Products by id.",
-        "deprecated": false,
-        "tags": [
-          "The type Product controller."
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResultProduct"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"id\": 0,\n    \"name\": \"\",\n    \"price\": 0.0,\n    \"pictureUrl\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method Not Allowed",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "415": {
-            "description": "Unsupported Media Type",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "api-v1-products-{id}-GET",
-        "parameters": [
-          {
-            "schema": {
-              "format": "int64",
-              "type": "number"
-            },
-            "in": "path",
-            "description": "the Product id",
-            "required": true,
-            "example": "1",
-            "name": "id"
-          }
-        ]
-      }
-    },
-    "/api/v1/products": {
-      "post": {
-        "summary": "Create Product.",
-        "deprecated": false,
-        "tags": [
-          "The type Product controller."
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Product"
-              },
-              "examples": {
-                "json": {
-                  "summary": "test data",
-                  "value": "{\n  \"id\": 0,\n  \"name\": \"\",\n  \"price\": 0.0,\n  \"pictureUrl\": \"\"\n}"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResultProduct"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {\n    \"id\": 0,\n    \"name\": \"\",\n    \"price\": 0.0,\n    \"pictureUrl\": \"\"\n  },\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method Not Allowed",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "415": {
-            "description": "Unsupported Media Type",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "api-v1-products-POST",
-        "parameters": []
-      },
-      "get": {
-        "summary": "Get all Products list.",
-        "deprecated": false,
-        "tags": [
-          "The type Product controller."
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResultListProduct"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "test data",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": [\n    {\n      \"id\": 0,\n      \"name\": \"\",\n      \"price\": 0.0,\n      \"pictureUrl\": \"\"\n    }\n  ],\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method Not Allowed",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "415": {
-            "description": "Unsupported Media Type",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "operationId": "api-v1-products-GET",
-        "parameters": []
-      }
-    },
     "/api/v1/user/{id}": {
       "delete": {
         "summary": "Delete user.",
         "deprecated": false,
         "tags": [
-          "The type User controller."
+          "UserController"
         ],
         "responses": {
           "200": {
@@ -1130,70 +323,6 @@
                   "json": {
                     "summary": "test data",
                     "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": true,\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method Not Allowed",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
-                  }
-                }
-              }
-            }
-          },
-          "415": {
-            "description": "Unsupported Media Type",
-            "content": {
-              "*/*": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResponseResult"
-                },
-                "examples": {
-                  "json": {
-                    "summary": "response example",
-                    "value": "{\n  \"success\": true,\n  \"status\": \"200\",\n  \"message\": \"\",\n  \"data\": {},\n  \"timestamp\": \"\"\n}"
                   }
                 }
               }
@@ -1236,41 +365,29 @@
   "components": {
     "schemas": {
       "defaultPrimitive": {
-        "format": "string",
-        "type": "string"
-      },
-      "ResponseResultProduct": {
         "properties": {
-          "success": {
-            "format": "boolean",
-            "description": "success",
-            "type": "boolean",
-            "example": "true"
-          },
-          "status": {
-            "format": "string",
-            "description": "response status",
-            "type": "string",
-            "example": "200"
-          },
-          "message": {
-            "format": "string",
-            "description": "error msg",
-            "type": "string"
-          },
-          "data": {
-            "description": "response data(object)",
-            "$ref": "#/components/schemas/Product"
-          },
-          "timestamp": {
-            "format": "string",
-            "description": "response timestamp",
-            "type": "string"
+          "bigDecimal": {
+            "format": "number",
+            "description": "No comments found.",
+            "type": "number",
+            "example": "0"
           }
         }
       },
       "User": {
         "properties": {
+          "balance1": {
+            "format": "double",
+            "description": "balance",
+            "type": "number",
+            "example": "0.0"
+          },
+          "balance": {
+            "format": "number",
+            "description": "balance",
+            "type": "number",
+            "example": "0"
+          },
           "id": {
             "format": "int64",
             "description": "user id",
@@ -1387,32 +504,6 @@
           }
         }
       },
-      "Product": {
-        "properties": {
-          "id": {
-            "format": "int64",
-            "description": "Product id",
-            "type": "number",
-            "example": "0"
-          },
-          "name": {
-            "format": "string",
-            "description": "Product name",
-            "type": "string"
-          },
-          "price": {
-            "format": "double",
-            "description": "Product price",
-            "type": "number",
-            "example": "0.0"
-          },
-          "pictureUrl": {
-            "format": "string",
-            "description": "Product picture url",
-            "type": "string"
-          }
-        }
-      },
       "ResponseResultBoolean": {
         "properties": {
           "success": {
@@ -1436,39 +527,6 @@
             "format": "boolean",
             "description": "response data",
             "type": "boolean"
-          },
-          "timestamp": {
-            "format": "string",
-            "description": "response timestamp",
-            "type": "string"
-          }
-        }
-      },
-      "ResponseResultListProduct": {
-        "properties": {
-          "success": {
-            "format": "boolean",
-            "description": "success",
-            "type": "boolean",
-            "example": "true"
-          },
-          "status": {
-            "format": "string",
-            "description": "response status",
-            "type": "string",
-            "example": "200"
-          },
-          "message": {
-            "format": "string",
-            "description": "error msg",
-            "type": "string"
-          },
-          "data": {
-            "description": "response data",
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Product"
-            }
           },
           "timestamp": {
             "format": "string",

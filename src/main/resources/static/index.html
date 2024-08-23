@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Test</title>
+</head>
+<body>
+<h1>WebSocket Test</h1>
+<div>
+    <label for="userId">User ID:</label>
+    <input type="text" id="userId" value="123">
+</div>
+<div>
+    <label for="message">Message:</label>
+    <input type="text" id="message" value="Hello, WebSocket!">
+</div>
+<button onclick="connectWebSocket()">Connect</button>
+<button onclick="sendMessage()">Send Message</button>
+<button onclick="closeWebSocket()">Close Connection</button>
+
+<div id="output"></div>
+
+<script>
+    let websocket;
+
+    function connectWebSocket() {
+        const userId = document.getElementById('userId').value;
+        const url = `ws://localhost:8080/ws/chat/${userId}`;
+        websocket = new WebSocket(url);
+
+        websocket.onopen = function(event) {
+            writeToScreen("Connected to " + url);
+        };
+
+        websocket.onmessage = function(event) {
+            writeToScreen("Received: " + event.data);
+        };
+
+        websocket.onclose = function(event) {
+            writeToScreen("Disconnected");
+        };
+
+        websocket.onerror = function(event) {
+            writeToScreen("Error: " + event.data);
+        };
+    }
+
+    function sendMessage() {
+        const message = document.getElementById('message').value;
+        if (websocket && websocket.readyState === WebSocket.OPEN) {
+            websocket.send(JSON.stringify({ content: message }));
+            writeToScreen("Sent: " + message);
+        } else {
+            writeToScreen("WebSocket is not connected.");
+        }
+    }
+
+    function closeWebSocket() {
+        if (websocket) {
+            websocket.close();
+        }
+    }
+
+    function writeToScreen(message) {
+        const output = document.getElementById('output');
+        const pre = document.createElement('p');
+        pre.style.wordWrap = 'break-word';
+        pre.innerHTML = message;
+        output.appendChild(pre);
+    }
+</script>
+</body>
+</html>
