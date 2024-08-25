@@ -9,7 +9,7 @@ import jakarta.websocket.EndpointConfig;
 /**
  * @author yu 2024/8/23
  */
-public class MessageEncoder implements Encoder.Text<SampleResponse> {
+public class MessageResponseEncoder implements Encoder.Text<SampleResponse> {
 
   private static final ObjectMapper objectMapper = new ObjectMapper();
 

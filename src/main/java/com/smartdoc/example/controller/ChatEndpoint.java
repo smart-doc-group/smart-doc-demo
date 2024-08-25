@@ -1,7 +1,7 @@
 package com.smartdoc.example.controller;
 
 import com.smartdoc.example.decoder.MessageDecoder;
-import com.smartdoc.example.encoder.MessageEncoder;
+import com.smartdoc.example.encoder.MessageResponseEncoder;
 import com.smartdoc.example.model.Message;
 import com.smartdoc.example.response.SampleResponse;
 import jakarta.websocket.*;
@@ -11,11 +11,12 @@ import org.springframework.stereotype.Component;
 
 /**
  * WebSocket server endpoint example.
+ * @author yu 2024/8/23
  */
 @Component
 @ServerEndpoint(value = "/ws/chat/{userId}",
         decoders = MessageDecoder.class,
-        encoders = MessageEncoder.class)
+        encoders = MessageResponseEncoder.class)
 public class ChatEndpoint {
 
     /**
