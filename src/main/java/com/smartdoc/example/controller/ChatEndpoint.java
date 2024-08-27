@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ServerEndpoint(value = "/ws/chat/{userId}",
-        decoders = MessageDecoder.class,
+        decoders = {MessageDecoder.class},
         encoders = {MessageResponseEncoder.class})
 public class ChatEndpoint {
 

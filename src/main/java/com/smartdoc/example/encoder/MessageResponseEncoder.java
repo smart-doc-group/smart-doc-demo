@@ -11,23 +11,23 @@ import jakarta.websocket.EndpointConfig;
  */
 public class MessageResponseEncoder implements Encoder.Text<SampleResponse> {
 
-  private static final ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
-  @Override
-  public String encode(SampleResponse response) {
-    try {
-      return objectMapper.writeValueAsString(response);
-    } catch (Exception e) {
-      throw new RuntimeException("Unable to encode SampleResponse", e);
+    @Override
+    public String encode(SampleResponse response) {
+        try {
+            return objectMapper.writeValueAsString(response);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to encode SampleResponse", e);
+        }
     }
-  }
 
-  @Override
-  public void init(EndpointConfig endpointConfig) {
-  }
+    @Override
+    public void init(EndpointConfig endpointConfig) {
+    }
 
-  @Override
-  public void destroy() {
-  }
+    @Override
+    public void destroy() {
+    }
 }
 
