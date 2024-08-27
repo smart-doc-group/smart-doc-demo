@@ -11,12 +11,13 @@ import org.springframework.stereotype.Component;
 
 /**
  * WebSocket server endpoint example.
+ *
  * @author yu 2024/8/23
  */
 @Component
 @ServerEndpoint(value = "/ws/chat/{userId}",
         decoders = MessageDecoder.class,
-        encoders = MessageResponseEncoder.class)
+        encoders = {MessageResponseEncoder.class})
 public class ChatEndpoint {
 
     /**
