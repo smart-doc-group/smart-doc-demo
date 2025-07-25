@@ -21,7 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
-        <smart-doc.version>3.1.0</smart-doc.version>
+        <smart-doc.version>3.1.1</smart-doc.version>
     </properties>
     <dependencies>
         <!-- spring boot -->
